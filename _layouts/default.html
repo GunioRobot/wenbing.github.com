@@ -2,20 +2,46 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
-    <link rel="shortcut icon" href="favicon.ico">
+    <title>{{ page.title }} &larr; {{ page.top }}</title>
+    <meta name="author" content="Wenbing Zheng" />
+    <link rel="start" href="/" />
+    <link rel="shortcut icon" href="/files/favicon.ico">
+    {% if page.keywords %}
+    <meta name="keywords" content="{{ page.keywords }}">
+    {% endif %}
+    {% if page.feed %}
+    <link rel="alternate" type="application/atom+xml" href="{{ page.feed }}" title="RSS feed" />
+    {% endif %}
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/files/css/syntax.css" type="text/css" media="all" />
+    <!-- Homepage CSS -->
+    <link rel="stylesheet" href="/files/css/screen.css" type="text/css" media="all" />
   </head>
-  <body>
-    <div id="header">
-      <h1>{{ page.title }}</h1>
-      <ul class="menu" id="menu">
-        <li class="leaf"><a href="http://new.quliaojie.com">Home</a></li>
-        <!--<li class="leaf"><a href=""></a></li>
-        <li class="leaf"><a href=""></a></li>-->
-      </ul>
+  <body id="{{ page.section }}">
+    <div id="site">
+      <div id="header">
+        <h1>{{ page.title }}</h1>
+        <ul class="menu" id="menu">
+          <li class="leaf"><a href="http://new.quliaojie.com">Home</a></li>
+          <!--<li class="leaf"><a href=""></a></li>
+          <li class="leaf"><a href=""></a></li>-->
+        </ul>
+      </div>
+      {{ content }}
+      <div id="footer">
+        <address>
+          <span class="copyright">
+            Content &amp; Design by 
+            <a href="#">Wenbing</a>
+            <br/>
+            (<a rel="licence" href="#">Some rights reserved</a>)			
+          </span>
+          <span class="engine">
+            Powered by 
+            <a href="http://github.com/mreid/jekyll/" title="A static, minimalist CMS">Jekyll</a>
+          </span>
+        </address>
+      </div>
     </div>
-
-    {{ content }}
   </body>
 </html>
