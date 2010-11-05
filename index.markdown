@@ -14,7 +14,7 @@ Welcome
 Blogs
 =====
 Recent posts include:
-{% for post in site.posts limit:3 %}
+{% for post in site.categories.post limit:3 %}
 <ul class="compact recent">
 <li>
   <a href="{{ post.url }}" title="{{ post.excerpt }}">{{ post.title }}</a>
