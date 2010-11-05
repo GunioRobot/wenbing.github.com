@@ -19,7 +19,7 @@ Recent posts include:
 <li>
   <a href="{{ post.url }}" title="{{ post.excerpt }}">{{ post.title }}</a>
   <em>发表于 </em>
-  <span class="date">{{ post.date | date_to_long_string }}.</span>
+  <span class="date">{{ post.date | date_to_string }}.</span>
 </li>
 </ul>
 {% endfor %}
