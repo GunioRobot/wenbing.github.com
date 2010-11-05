@@ -32,7 +32,7 @@ test
 =--
 
 +-- {.section}
-[Twitter](http://twitter.com/wenbing)
+[Twitter](https://twitter.com/wenbing)
 ====================================
 
 Contacting Twitter... 
