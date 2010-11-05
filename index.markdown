@@ -1,7 +1,6 @@
 ---
 layout: name
 title: Home
-
 section: Home
 ---
 
@@ -18,8 +17,7 @@ Recent posts include:
 <ul class="compact recent">
 <li>
   <a href="{{ post.url }}" title="{{ post.excerpt }}">{{ post.title }}</a>
-  <em>发表于 </em>
-  <span class="date">{{ post.date | date_to_string }}.</span>
+  <span class="date"><em>发表于 </em>{{ post.date | date_to_string }}.</span>
 </li>
 </ul>
 {% endfor %}
