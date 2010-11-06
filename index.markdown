@@ -8,10 +8,10 @@ section: Home
 ====
 
 +-- {.section}
-[Blog](/post)
+[Blog](/blog)
 ==============
 最近发表的文章：
-{% for post in site.categories.post limit:3 %}
+{% for post in site.categories.blog limit:3 %}
 <ul class="compact recent">
 <li>
   <a href="{{ post.url }}" title="{{ post.excerpt }}">{{ post.title }}</a>

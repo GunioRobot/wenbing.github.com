@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: blog
 title: 网志首页
 section: Home
 
@@ -13,7 +13,7 @@ keywords: Blog,网志
 最近发表的文章
 --------------
 
-{% for post in site.categories.post limit:8 %}
+{% for post in site.categories.blog limit:8 %}
 <div class="section list">
   <h1>{{ post.date | date_to_string }}</h1>
   <p class="line">

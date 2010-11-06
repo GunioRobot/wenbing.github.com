@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: blog
 title: 日志存档
 section: Past
 
@@ -12,7 +12,7 @@ keywords: 网志,存档
 
 这是 _[Blog Posts](/post)_ 下的全部文章。按时间倒序排列。
 
-{% for post in site.categories.post %}
+{% for post in site.categories.blog %}
 <div class="section list">
   <h1>{{ post.date | date_to_string }}</h1>
   <p class="line">
