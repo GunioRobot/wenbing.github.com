@@ -4,15 +4,13 @@ title: Home
 section: Home
 ---
 
-Welcome
+欢迎访问
 =======
-
-Welcome
 
 +-- {.section}
 [Blogs](/post)
-=====
-Recent posts include:
+==============
+最近发表的文章：
 {% for post in site.categories.post limit:3 %}
 <ul class="compact recent">
 <li>
@@ -25,15 +23,13 @@ Recent posts include:
 
 +--	{.section}
 Test
-========
+====
 test 
 =--
 
 +-- {.section}
 [Twitter](https://twitter.com/wenbing)
-====================================
-
+======================================
 Contacting Twitter... 
 {:#twitter_update_list }
-
 =--

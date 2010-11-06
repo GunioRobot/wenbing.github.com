@@ -7,11 +7,11 @@ feed: atom.xml
 keywords: Blog 
 ---
 
-A Blog
-==========================================
+我的网志 -- 记录我的生活
+========================
 
-Recent Posts
-------------
+最近发表的文章
+--------------
 
 {% for post in site.categories.post limit:5 %}
 <div class="section list">
@@ -25,7 +25,7 @@ Recent Posts
 {% endfor %}
 
 <p>
-<a href="past.html">Older Posts &rarr;</a>
+<a href="past.html">往期日志 &rarr;</a>
 </p>
 
 <script type="text/javascript">
