@@ -1,11 +1,14 @@
 ---
 layout: name
 title: Home
+
 section: Home
 ---
 
 欢迎
 ====
+
+<img class='inset right' src='/files/images/chyyy.jpg' title='春-夜-月-樱' alt='春-夜-月-樱-图' width='120px' />
 
 +-- {.section}
 [Blog](/blog)
