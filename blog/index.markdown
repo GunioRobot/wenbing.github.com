@@ -38,7 +38,7 @@ keywords: Blog,网志
         query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
       }
     }
-    document.write('<script type="text/javascript" src="http://disqus.com/forums/markreid/get_num_replies.js' + query + '"></' + 'script>');
+    document.write('<script type="text/javascript" src="http://disqus.com/forums/quliaojie/get_num_replies.js' + query + '"></' + 'script>');
   };
   window.onload = get_disqus_comments();
 //]]>
