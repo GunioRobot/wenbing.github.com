@@ -36,15 +36,6 @@ section: Home
 {% endfor %}
 =--
 
-+-- {.section}
-[Twitter](https://twitter.com/wenbing)
-======================================
-Contacting Twitter... 
-{:#twitter-update-list }
-=--
-
-
-
 <script type="text/javascript">
 //<![CDATA[
 //document.write('<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></' + 'script>');
