@@ -10,7 +10,7 @@ Welcome
 Welcome
 
 +-- {.section}
-Blogs
+[Blogs](/post)
 =====
 Recent posts include:
 {% for post in site.categories.post limit:3 %}
