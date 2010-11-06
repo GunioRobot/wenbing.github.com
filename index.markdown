@@ -40,14 +40,15 @@ section: Home
 [Twitter](https://twitter.com/wenbing)
 ======================================
 Contacting Twitter... 
-{:#twitter_update_list }
+{:#twitter-update-list }
 =--
 
 
 
 <script type="text/javascript">
 //<![CDATA[
-    document.write('<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></' + 'script>');
-    document.write('<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/wenbing.json?callback=twitterCallback2&count=1"></' + 'script>');
+//document.write('<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></' + 'script>');
+//document.write('<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/wenbing.json?callback=twitterCallback2&count=1"></' + 'script>');
+google.load("jquery", "1.4.3");
 //]]>
 </script>
