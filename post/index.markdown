@@ -4,7 +4,7 @@ title: 网志首页
 section: Home
 
 feed: atom.xml
-keywords: Blog,网址
+keywords: Blog,网志
 ---
 
 我的网志 -- 记录我的生活
@@ -30,7 +30,7 @@ keywords: Blog,网址
 
 <script type="text/javascript">
 //<![CDATA[
-  var get_disqus_comments = function() {
+  function get_disqus_comments() {
     var links = document.getElementsByTagName('a');
     var query = '?';
     for(var i = 0; i < links.length; i++) {
@@ -40,6 +40,6 @@ keywords: Blog,网址
     }
     document.write('<script type="text/javascript" src="http://disqus.com/forums/markreid/get_num_replies.js' + query + '"></' + 'script>');
   };
-  window.onload = get_disqus_comments();
+  //window.onload = get_disqus_comments();
 //]]>
 </script>
