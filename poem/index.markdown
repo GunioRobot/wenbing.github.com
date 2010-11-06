@@ -7,25 +7,25 @@ feed: atom.xml
 keywords: Poem 
 ---
 
-Some Poems
+诗
 ==========================================
 
-Recent Poems
-------------
+最近更新
+--------
 
 {% for post in site.categories.poem limit:5 %}
 <div class="section list">
   <h1>{{ post.date | date_to_string }}</h1>
   <p class="line">
   <a class="title" href="{{ post.url }}">{{ post.title }}</a>
-  <a class="comments" href="{{ post.url }}#disqus_thread">View Comments</a>
+  <a class="comments" href="{{ post.url }}#disqus_thread">评论</a>
   </p>
   <p class="excerpt">{{ post.excerpt }}</p>
 </div>
 {% endfor %}
 
 <p>
-<a href="past.html">Older Poems &rarr;</a>
+<a href="past.html">旧诗文 &rarr;</a>
 </p>
 
 <script type="text/javascript">

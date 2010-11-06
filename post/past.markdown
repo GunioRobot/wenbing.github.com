@@ -1,24 +1,23 @@
 ---
 layout: post
-title: Archives
+title: 日志存档
 section: Past
 
 feed: atom.xml
-keywords: 
+keywords: 网志,存档
 ---
 
-Archives
+文章存档
 ========
 
-This is the complete archive of posts from _[Blog Posts](/post)_
-in reverse chronological order.
+这是 _[Blog Posts](/post)_ 下的全部文章。按时间倒序排列。
 
 {% for post in site.categories.post %}
 <div class="section list">
   <h1>{{ post.date | date_to_string }}</h1>
   <p class="line">
   <a class="title" href="{{ post.url }}">{{ post.title }}</a>
-  <a class="comments" href="{{ post.url }}#disqus_thread">View Comments</a>
+  <a class="comments" href="{{ post.url }}#disqus_thread">评论</a>
   </p>
   <p class="excerpt">{{ post.excerpt }}</p>
 </div>
