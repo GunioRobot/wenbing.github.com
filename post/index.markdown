@@ -7,13 +7,13 @@ feed: atom.xml
 keywords: Blog,网志
 ---
 
-我的网志 -- 记录我的生活
-========================
+我的网志
+========
 
 最近发表的文章
 --------------
 
-{% for post in site.categories.post limit:5 %}
+{% for post in site.categories.post limit:8 %}
 <div class="section list">
   <h1>{{ post.date | date_to_string }}</h1>
   <p class="line">

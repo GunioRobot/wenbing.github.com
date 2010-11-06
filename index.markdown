@@ -8,7 +8,7 @@ section: Home
 =======
 
 +-- {.section}
-[Blogs](/post)
+[Blog](/post)
 ==============
 最近发表的文章：
 {% for post in site.categories.post limit:3 %}
@@ -33,12 +33,6 @@ section: Home
 </li>
 </ul>
 {% endfor %}
-=--
-
-+--	{.section}
-Test
-====
-test 
 =--
 
 +-- {.section}
