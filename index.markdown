@@ -50,5 +50,8 @@ Contacting Twitter...
 //document.write('<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></' + 'script>');
 //document.write('<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/wenbing.json?callback=twitterCallback2&count=1"></' + 'script>');
 google.load("jquery", "1.4.3");
+$.get('http://twitter.com/statuses/user_timeline/wenbing.json?callback=twitterCallback2&count=1', function(data) {
+    $('#twitter-update-list').html(data);
+});
 //]]>
 </script>
