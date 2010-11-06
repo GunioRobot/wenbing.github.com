@@ -39,3 +39,9 @@ section: Home
 Contacting Twitter... 
 {:#twitter_update_list }
 =--
+
+
+
+<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/wenbing.json?callback=t
+witterCallback2&count=1"></script>
