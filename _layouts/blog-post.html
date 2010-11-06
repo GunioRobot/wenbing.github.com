@@ -1,0 +1,37 @@
+---
+layout: default
+top: Blog Top
+feed: atom.xml
+---
+
+<div id="header">
+	{% include nav-blog.html %}
+</div>
+
+<div id="page">
+	
+  <h1 class="emphnext">{{ page.title }}</h1>
+
+{{ content }}
+
+  <address class="signature">
+    <a class="author" href="/">Mark Reid</a> 
+    <span class="date">{{ page.date | date_to_long_string }}</span>
+    <span class="location">{{ page.location }}</span>
+  </address>
+</div><!-- End Page -->
+
+<!-- Discus Comments -->
+<div id="disqus_thread"></div>
+
+<!-- Enable Disqus comments -->
+<script type="text/javascript">
+	var disqus_iframe_css = "/files/css/screen.css";
+	var disqus_title = "{{ page.title }}";
+	var disqus_message = "{{ page.excerpt }}";
+</script>
+<script type="text/javascript" src="http://quliaojie.disqus.com/embed.js"></script>
+
+<noscript>
+		<a href="http://disqus.com/?ref_noscript=quliaojie">查看评论</a>
+</noscript>
