@@ -33,7 +33,7 @@ keywords: 网志,存档
 				query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
 			}
 		}
-		document.write('<script type="text/javascript" src="http://disqus.com/forums/markreid/get_num_replies.js' + query + '"></' + 'script>');
+    document.write('<script type="text/javascript" src="http://disqus.com/forums/quliaojie/get_num_replies.js' + query + '"></' + 'script>');
 	})();
 //]]>
 </script>
