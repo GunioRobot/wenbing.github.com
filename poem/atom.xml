@@ -1,0 +1,27 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Wenbing Zheng -- Poems</title>
+ <link href="http://new.quliaojie.com/poem/atom.xml" rel="self"/>
+ <link href="http://new.quliaojie.com/poem/"/>
+ <updated>{{ site.time | date_to_xmlschema }}</updated>
+ <id>http://new.quliaojie.com/poem/</id>
+ <author>
+   <name>Wenbing Zheng</name>
+   <email>zhengwb@quliaojie.com</email>
+ </author>
+ 
+ {% for post in site.categories.poem limit:5 %}
+ <entry>
+   <title>{{ post.title }}</title>
+   <link href="http://new.quliaojie.com{{ post.url }}"/>
+   <updated>{{ post.date | date_to_xmlschema }}</updated>
+   <id>id:{{ post.id }}</id>
+   <content type="html">{{ post.content | xml_escape }}</content>
+ </entry>
+ {% endfor %}
+ 
+</feed>
