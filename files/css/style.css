@@ -1,0 +1,274 @@
+/*
+Theme Name: NCZOnline V2
+Theme URI: http://www.nczonline.net/
+Description: The default WordPress theme based on the famous <a href="http://binarybonsai.com/kubrick/">Kubrick</a>.
+Version: 1.6
+Author: Nicholas C. Zakas
+Author URI: http://www.nczonline.net/
+Tags: 
+
+
+*/
+
+#doc {
+    margin: 0 auto;
+    width: 69.2em;
+}
+
+#hd #subhd {
+    padding: 1em 1.5em;
+}
+
+#hd ul {
+    padding: 0.5em 1em;
+    text-align: center;
+}
+#hd ul li {
+    display:inline;
+}
+
+#hd ul li a{
+    display:inline-block;
+    margin-left: 2em;
+}
+
+#hd ul li.first a {
+    margin-left: 0;
+}    
+
+#bd {
+
+}
+
+#content {
+    float: left;
+    width: 48.4em;  /*was 47em*/
+    padding: 0 1.5em 1.5em;
+}
+
+#content pre {
+    overflow: auto;
+    overflow-y: hidden;
+    padding: 1em 1.5em;
+}
+
+#content .post-head {
+    margin-bottom: 1em;
+}
+
+#content .post-head h1,
+#content .post-head h2,
+#content .post-head h3,
+#content .post-head p {
+    margin-bottom: 0;
+}
+
+#content .post-comment {
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+#content .post-comment .post-comment-byline {
+    margin-bottom: 0;
+}
+
+#content form textarea {
+    width: 100%;
+}
+
+#content .notice {
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+#content .post-footer {
+    margin-bottom: 1em;
+}
+
+#content .post-footer h2 {
+    margin-bottom: 0.5em;
+}
+
+#content .post-footer-posts {
+    float: left;
+    width: 49%;
+}
+
+#content .post-footer-books {
+    float: right;
+    width: 49%;
+}
+
+#content .post-footer-books ul {
+    margin: 0;
+    padding: 0;
+}
+
+#content .post-footer-books ul li {
+    list-style-type: none;
+    display: inline;
+}
+
+#sidebar {
+    float: left;
+    padding: 0 1em;
+    width: 15.7em; /*was 17em*/
+    *width: 15.4em;
+}
+
+#sidebar h2 {
+    margin-top: 1em;
+    margin-bottom: 0.3em;
+}
+
+#ft {
+    padding: 0.5em;
+    clear: both;
+}
+
+.hide-offscreen {
+    position: absolute;
+    left: -1000em;        
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    content: '.';
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    display: block;
+    clear:both;
+}
+
+/*Format*/
+
+html,body {
+    background: #A2A749;
+}
+
+a, a:visited, a:active {
+    color: #660;
+}
+    
+blockquote {
+    background-image: url(/_images/quote.gif);
+    background-repeat: no-repeat;
+}    
+    
+#doc {
+    background: #fff;
+    border: 1px solid #5B5F19;
+    border-top: 0;
+    border-bottom: 0;
+    -moz-box-shadow: 0 0 1em black;
+    -webkit-box-shadow: 0 0 1em black;
+    box-shadow: 0 0 1em black;
+}
+  
+#hd {
+    border-bottom: 1px solid #5B5F19;
+}
+
+#hd h1 {
+    font-size: 197%;
+    font-family: "Arial Narrow";
+    font-style: italic;
+    font-weight: normal !important;
+}
+
+#hd h1 acronym {
+    font-weight: bold;
+}    
+
+#hd ul {
+    border-top: 1px solid #5B5F19;
+    background: #DCE09C;
+    font-size: 116%;
+    font-weight: bold;
+}
+
+#hd ul a {
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+#hd ul a:hover {
+    text-decoration: underline;
+}    
+
+#content .post-snippet {
+    border-bottom: 1px solid #DCE09C;
+}
+
+#content .post-head p {
+    font-size: 85%;
+}
+
+#content .post-head h2 a,
+#content .post-head h3 a {
+    text-decoration: none;
+}
+
+#content .post-head h2 a:hover,
+#content .post-head h3 a:hover {
+    text-decoration: underline;
+    color: #000;
+}
+
+#content {
+    border-right: 1px solid #5B5F19;
+}
+
+#content pre {
+    background: #efefef;
+    /*overflow: auto;
+    *overflow: visible;
+    *overflow-x: auto;
+    *overflow-y: hidden;*/
+
+}
+
+#content .post-comment {
+    background: #EDEFC9;
+}
+
+#content .notice {
+    background: #f7ffcd;
+    border: 1px solid #a5a54a;
+}
+
+#content .disclaimer {
+    font-size: 85%;
+    font-style: italic;
+}
+
+.post-comment .post-comment-byline {
+    font-size: 85%;
+    text-align: right;
+}
+
+.post-comments {
+    border-top: 1px solid #5B5F19;
+}
+
+#sidebar h2 {
+    font-weight: bold;
+    font-size: 123.1%;
+    border-bottom: 1px solid #5B5F19;
+}
+    
+#sidebar .books li {
+    display: inline;
+}
+
+#ft {
+    text-align: center;
+    font-size: 85%;
+    border-top: 1px solid #5B5F19;
+}
+  
