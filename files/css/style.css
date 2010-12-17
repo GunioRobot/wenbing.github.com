@@ -1,8 +1,56 @@
 
-#sidebar {
-    float: left;
-    padding: 0 1em;
+#hd #subhd {
+    padding: 1em 1.5em;
 }
+
+#hd ul {
+    padding: 0.5em 1em;
+    text-align: center;
+}
+#hd ul li {
+    display:inline;
+}
+
+#hd ul li a{
+    display:inline-block;
+    margin-left: 2em;
+}
+
+#hd ul li.first a {
+    margin-left: 0;
+}    
+
+#hd {
+    border-bottom: 1px solid #5B5F19;
+}
+
+#hd h1 {
+    font-size: 197%;
+    font-family: "Arial Narrow";
+    font-style: italic;
+    font-weight: normal !important;
+}
+
+#hd h1 acronym {
+    font-weight: bold;
+}    
+
+#hd ul {
+    border-top: 1px solid #5B5F19;
+    background: #DCE09C;
+    font-size: 116%;
+    font-weight: bold;
+}
+
+#hd ul a {
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+#hd ul a:hover {
+    text-decoration: underline;
+}    
 
 #sidebar h2 {
     margin-top: 1em;
