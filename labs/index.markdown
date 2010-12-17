@@ -6,8 +6,8 @@ section: labs
 keywords: labs, blueprintcss, jquery
 ---
 
-最近发表的文章
---------------
+Recent Posts
+------------
 
 <div class="post-snippet">
   <div class="post-head">
