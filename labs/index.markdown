@@ -6,7 +6,7 @@ section: labs
 keywords: labs, blueprintcss, jquery
 ---
 
-我实验室的
+我的实验室
 ==========
 
 最近发表的文章
