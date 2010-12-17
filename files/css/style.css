@@ -20,6 +20,10 @@
   padding-top: 15px;
 }
 
+#doc h3 {
+  font-size: 1em;
+}
+
 #doc .post-snippet {
   margin-bottom: 1em;
   border-bottom: 1px solid #DCE09C;
@@ -52,6 +56,7 @@
 
 #content .post-content p {
   margin-bottom: 1em;
+  font-size: 1em;
 }
 
 #sidebar {
