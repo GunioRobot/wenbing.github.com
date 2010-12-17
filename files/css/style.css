@@ -17,12 +17,15 @@
 }
 
 #doc .post-snippet {
-  padding-left: 15px;
   border-bottom: 1px solid #DCE09C;
 }
 
+#content {
+  padding-left: 20px;
+}
+
 #content h2 {
-  padding: 15px 0 0 15px;
+  padding-top: 15px;
 }
 
 #content .post-head h2 a, #content .post-head h3 a {
@@ -38,7 +41,11 @@
 #content .post-head h3, 
 #content .post-head p {
   margin-bottom: 0;
-  }
+}
+
+#sidebar {
+  padding-right: 20px;
+}
 
 #hd {
   border-bottom: 1px solid #5B5F19;
