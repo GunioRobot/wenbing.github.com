@@ -12,7 +12,7 @@ Recent Posts
 <div class="post-snippet">
   <div class="post-head">
     <h3><a href="#">This is a sample post</a></h3>
-    <p class="byline">2010-12-17 17:59</p>
+    <p>{{ date_to_string }}</p>
   </div>
   <div class="post-content">
     <p>This is a sample post...This is a sample post...This is a sample post...This is a sample post...This is a sample post...This is a sample post...This is a sample post...This is a sample post...This is a sample post...This is a sample post...</p>
