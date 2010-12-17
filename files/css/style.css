@@ -11,9 +11,13 @@
   box-shadow: 0 0 1em black;
 }
 
-#doc h2 {
+#doc h2, #doc h3 {
   font-weight: bold;
+}
+
+#doc h2 {
   font-size: 1.25em;
+  padding-top: 15px;
 }
 
 #doc .post-snippet {
@@ -23,15 +27,16 @@
 
 #content {
   padding-left: 20px;
-  border-right-color: #DCE09C;
-}
-
-#content h2 {
-  padding-top: 15px;
+  border-right-color: #5B5F19;
 }
 
 #content .post-head h2 a, #content .post-head h3 a {
   text-decoration: none;
+}
+
+#content .post-head h2 a:hover, #content .post-head h3 a:hover {
+  color: #000000;
+  text-decoration: underline;
 }
 
 #content .post-head p {
