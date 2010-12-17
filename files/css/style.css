@@ -1,82 +1,85 @@
 
-#hd #subhd {
-    padding: 1em 1.5em;
-}
-
-#hd ul {
-    padding: 0.5em 1em;
-    text-align: center;
-}
-#hd ul li {
-    display:inline;
-}
-
-#hd ul li a{
-    display:inline-block;
-    margin-left: 2em;
-}
-
-#hd ul li.first a {
-    margin-left: 0;
-}    
-
 #hd {
-    border-bottom: 1px solid #5B5F19;
+  border-bottom: 1px solid #5B5F19;
 }
 
 #hd h1 {
-    font-size: 197%;
-    font-family: "Arial Narrow";
-    font-style: italic;
-    font-weight: normal !important;
+  font-size: 197%;
+  font-family: "Arial Narrow";
+  font-style: italic;
+  font-weight: normal !important;
 }
 
 #hd h1 acronym {
-    font-weight: bold;
-}    
-
-#hd ul {
-    border-top: 1px solid #5B5F19;
-    background: #DCE09C;
-    font-size: 116%;
-    font-weight: bold;
+  font-weight: bold;
+  border: 0;
 }
 
+#hd #subhd {
+  padding: 1em 1.5em;
+}
+
+#hd ul {
+  margin: 0;
+  padding: 0.5em 1em;
+  text-align: center;
+  border-top: 1px solid #5B5F19;
+  background: #DCE09C;
+  font-size: 116%;
+  font-weight: bold;
+}
+
+#hd ul li {
+  display:inline;
+}
+
+#hd ul li a{
+  display:inline-block;
+  margin-left: 2em;
+}
+
+#hd ul li.first a {
+  margin-left: 0;
+}    
+
 #hd ul a {
-    color: #000;
-    text-transform: uppercase;
-    text-decoration: none;
+  color: #000;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 #hd ul a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }    
 
 #sidebar h2 {
-    margin-top: 1em;
-    margin-bottom: 0.3em;
+  margin-top: 1em;
+  margin-bottom: 0.3em;
 }
 
 #ft {
-    padding: 0.5em;
-    clear: both;
+  padding: 0.5em;
+  clear: both;
 }
 
 .hide-offscreen {
-    position: absolute;
-    left: -1000px;
+  position: absolute;
+  left: -1000px;
 }
 
 
 html,body {
-    background: #A2A749;
+  background: #A2A749;
 }
 
 a, a:visited, a:active {
-    color: #660;
+  color: #660;
 }
-    
+
 blockquote {
-    background-image: url(/_images/quote.gif);
-    background-repeat: no-repeat;
+  background-image: url(/_images/quote.gif);
+  background-repeat: no-repeat;
 }    
+acronym {
+  border: 0;
+}
