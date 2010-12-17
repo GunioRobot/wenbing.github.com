@@ -13,7 +13,15 @@
 
 #doc h2 {
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.25em;
+}
+
+#doc #content h2 {
+  padding: 15px 0 0 15px;
+}
+
+#doc .post-snippet {
+  padding-left: 15px;
 }
 
 #hd {
