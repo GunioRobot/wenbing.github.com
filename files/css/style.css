@@ -1,4 +1,16 @@
 
+
+
+#doc {
+  background: #ffffff;
+  border: 1px solid #5B5F19;
+  border-top: 0;
+  border-bottom: 0;
+  -moz-box-shadow: 0 0 1em black;
+  -webkit-box-shadow: 0 0 1em black;
+  box-shadow: 0 0 1em black;
+}
+
 #hd {
   border-bottom: 1px solid #5B5F19;
 }
@@ -51,6 +63,8 @@
 #hd ul a:hover {
   text-decoration: underline;
 }    
+
+
 
 #sidebar h2 {
   margin-top: 1em;
