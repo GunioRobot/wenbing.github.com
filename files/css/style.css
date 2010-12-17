@@ -17,57 +17,14 @@
 
 #doc h2 {
   font-size: 1.25em;
-  padding-top: 15px;
+  margin-top: 1em;
 }
 
 #doc h3 {
   font-size: 1.2em;
 }
 
-#doc .post-snippet {
-  margin-bottom: 1em;
-  border-bottom: 1px solid #DCE09C;
-}
-
-#content {
-  padding-left: 20px;
-  border-right-color: #5B5F19;
-}
-
-#content .post-head {
-  margin-bottom: 1em;
-}
-
-#content .post-head h2 a, #content .post-head h3 a {
-  text-decoration: none;
-}
-
-#content .post-head h2 a:hover, #content .post-head h3 a:hover {
-  color: #000000;
-  text-decoration: underline;
-}
-
-#content .post-head p {
-  font-size: 95%;
-}
-
-#content .post-head h1, 
-#content .post-head h2, 
-#content .post-head h3, 
-#content .post-head p {
-  margin-bottom: 0;
-}
-
-#content .post-content p {
-  margin-bottom: 1em;
-  font-size: 1.1em;
-  line-height: 1.2em;
-}
-
-#sidebar {
-  padding-right: 20px;
-}
-
+/* #hd */
 #hd {
   border-bottom: 1px solid #5B5F19;
 }
@@ -122,19 +79,75 @@
   text-decoration: underline;
 }    
 
-
-
-#sidebar h2 {
-  margin-top: 1em;
-  margin-bottom: 0.3em;
+/* #bd */
+#content .post-snippet {
+  margin-bottom: 1em;
+  border-bottom: 1px solid #DCE09C;
 }
 
+#content {
+  padding-left: 20px;
+  border-right-color: #5B5F19;
+}
+
+#content .post-head {
+  margin-bottom: 1em;
+}
+
+#content .post-head h2 a, #content .post-head h3 a {
+  text-decoration: none;
+}
+
+#content .post-head h2 a:hover, #content .post-head h3 a:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+
+#content .post-head p {
+  font-size: 95%;
+}
+
+#content .post-head h2, 
+#content .post-head h3, 
+#content .post-head p {
+  margin-bottom: 0;
+}
+
+#content .post-content p {
+  margin-bottom: 1em;
+  font-size: 1.1em;
+  line-height: 1.2em;
+}
+
+#sidebar {
+  padding-right: 20px;
+}
+
+#sidebar h2 {
+  margin-bottom: 0.3em;
+  border-bottom: 1px solid #5B5F19;
+}
+
+#sidebar ul {
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar ul li {
+  list-style: none outside none;
+}
+
+/* #ft */
 #ft {
   padding: 0.5em;
   clear: both;
   border-top: 1px solid #5B5F19;
   font-size: 85%;
   text-align: center;
+}
+
+#ft p {
+  margin: 0;
 }
 
 .hide-offscreen {
@@ -147,8 +160,8 @@ html,body {
   background: #A2A749;
 }
 
-a, a:visited, a:active {
-  color: #660;
+a, a:visited, a:active, a:hover {
+  color: #666600;
 }
 
 blockquote {
