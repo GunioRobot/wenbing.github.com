@@ -135,6 +135,7 @@
 
 #sidebar ul li {
   list-style: none outside none;
+  line-height: 1.2em;
 }
 
 /* #ft */
