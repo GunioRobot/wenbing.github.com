@@ -16,13 +16,29 @@
   font-size: 1.25em;
 }
 
-#doc #content h2 {
+#doc .post-snippet {
+  padding-left: 15px;
+  border-bottom: 1px solid #DCE09C;
+}
+
+#content h2 {
   padding: 15px 0 0 15px;
 }
 
-#doc .post-snippet {
-  padding-left: 15px;
+#content .post-head h2 a, #content .post-head h3 a {
+  text-decoration: none;
 }
+
+#content .post-head p {
+  font-size: 95%;
+}
+
+#content .post-head h1, 
+#content .post-head h2, 
+#content .post-head h3, 
+#content .post-head p {
+  margin-bottom: 0;
+  }
 
 #hd {
   border-bottom: 1px solid #5B5F19;
