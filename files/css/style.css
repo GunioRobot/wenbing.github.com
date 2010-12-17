@@ -17,11 +17,13 @@
 }
 
 #doc .post-snippet {
+  margin-bottom: 1em;
   border-bottom: 1px solid #DCE09C;
 }
 
 #content {
   padding-left: 20px;
+  border-right-color: #DCE09C;
 }
 
 #content h2 {
@@ -41,6 +43,10 @@
 #content .post-head h3, 
 #content .post-head p {
   margin-bottom: 0;
+}
+
+#content .post-content p {
+  margin-bottom: 1em;
 }
 
 #sidebar {
