@@ -1,6 +1,6 @@
 ---
 layout: labs
-title: Labs
+title: Labs Home
 section: labs
 
 keywords: labs, blueprintcss, jquery

@@ -37,7 +37,7 @@
   text-align: center;
   border-top: 1px solid #5B5F19;
   background: #DCE09C;
-  font-size: 136%;
+  font-size: 130%;
   font-weight: bold;
 }
 
@@ -91,7 +91,7 @@ a, a:visited, a:active {
 }
 
 blockquote {
-  background-image: url(/_images/quote.gif);
+  background-image: url(/files/images/quote.gif);
   background-repeat: no-repeat;
 }    
 acronym {
