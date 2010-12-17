@@ -4,7 +4,7 @@ title: Labs Home
 section: labs
 
 keywords: labs, blueprintcss, jquery
-------------------------------------
+---
 
 Recent Posts
 ------------
