@@ -11,14 +11,14 @@ future:      true
 lsi:         false
 pygments:    true
 markdown:    maruku
-permalink:   date
+permalink:   /:categories/:year/:title.html
 
 maruku:
   use_tex:    false
   use_divs:   false
   png_engine: blahtex
-  png_dir:    images/latex
-  png_url:    /images/latex
+  png_dir:    files/images/latex
+  png_url:    /files/images/latex
 
 rdiscount:
   extensions: []

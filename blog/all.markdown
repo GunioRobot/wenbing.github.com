@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: 日志存档
-section: Past
+section: all-post
 
 feed: atom.xml
 keywords: 网志,存档
