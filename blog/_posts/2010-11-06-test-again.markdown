@@ -2,15 +2,13 @@
 layout: blog-post
 
 title: test again blog post 
-excerpt: 
-location:
-
+excerpt: * blog post * poems archive
 ---
 
 按需生产
 
 需要的功能：
-===========
+---------
 
 * blog post
 * poems archive

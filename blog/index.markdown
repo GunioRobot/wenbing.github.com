@@ -1,33 +1,37 @@
 ---
 layout: blog
-title: 网志首页
-section: Home
+title: Blog Home 
+section: Blog
 
 feed: atom.xml
 keywords: Blog,网志
 ---
 
+<!--
 我的网志
 ========
+-->
 
-最近发表的文章
---------------
+Recent Posts
+------------
 
 {% for post in site.categories.blog limit:8 %}
-<div class="section list">
-  <h1>{{ post.date | date_to_string }}</h1>
-  <p class="line">
-  <a class="title" href="{{ post.url }}">{{ post.title }}</a>
-  <a class="comments" href="{{ post.url }}#disqus_thread">评论</a>
-  </p>
-  <p class="excerpt">{{ post.excerpt }}</p>
-</div>
+  <div class="post-snippet">
+    <div class="post-head">
+      <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+      <p>{{ post.date | date_to_long_string }}</p>
+    </div>
+    <div class="post-content">
+      <p>{{ post.excerpt }}</p>
+    </div>
+  </div>
 {% endfor %}
 
 <p>
 <a href="past.html">往期日志 &rarr;</a>
 </p>
 
+<!--
 <script type="text/javascript">
 //<![CDATA[
   function get_disqus_comments() {
@@ -43,3 +47,4 @@ keywords: Blog,网志
   window.onload = get_disqus_comments();
 //]]>
 </script>
+-->
