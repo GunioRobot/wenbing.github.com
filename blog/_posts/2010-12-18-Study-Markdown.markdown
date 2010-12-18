@@ -64,7 +64,7 @@ It may also be referred to via a reference:
 Here, imageref refers to information somewhere after the image:  
 >`[imageref]: image.url.here "Image title here"`
 test image:  
-![春-夜-月-樱](/files/images/chyyy.jpg "春-夜-月-樱")
+![春-夜-月-樱](/issets/images/chyyy.jpg "春-夜-月-樱")
 test image link  
 [![春-夜-月-樱][chyyy]][Google]
 
@@ -85,6 +85,6 @@ Horizontal rules are created by placing three or more hyphens, asterisks, or und
 You can visit [Markdown Syntax][markdown-syntax] for more about Markdown Syntax.
 
 [Google]: http://www.google.com/ncr "Google"
-[chyyy]: /files/images/chyyy.jpg  "春-夜-月-樱"
+[chyyy]: /issets/images/chyyy.jpg  "春-夜-月-樱"
 [markdown]: http://daringfireball.net/projects/markdown "Markdown"
 [markdown-syntax]: http://daringfireball.net/projects/markdown/syntax "Markdown Syntax"
