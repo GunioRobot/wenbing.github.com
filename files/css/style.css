@@ -17,7 +17,6 @@
 
 #doc h2 {
   font-size: 1.25em;
-  margin-top: 1em;
 }
 
 #doc h3 {
@@ -80,15 +79,16 @@
 }    
 
 /* #bd */
-#content .post-snippet {
-  margin-bottom: 1em;
-  border-bottom: 1px solid #DCE09C;
-}
-
 #content {
   margin-right: 20px;
   padding-left: 20px;
   border-right-color: #5B5F19;
+  padding-top: 1em;
+}
+
+#content .post-snippet {
+  margin-bottom: 1em;
+  border-bottom: 1px solid #DCE09C;
 }
 
 #content .post-head {
@@ -121,6 +121,7 @@
 }
 
 #sidebar {
+  padding-top: 1em;
   padding-right: 25px;
 }
 
@@ -132,6 +133,7 @@
 #sidebar ul {
   margin: 0;
   padding: 0;
+  margin-bottom: 1em;
 }
 
 #sidebar ul li {
