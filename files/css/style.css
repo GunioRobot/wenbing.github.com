@@ -13,14 +13,7 @@
 
 #doc h2, #doc h3 {
   font-weight: bold;
-}
-
-#doc h2 {
-  font-size: 1.25em;
-}
-
-#doc h3 {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 /* #hd */
@@ -29,7 +22,7 @@
 }
 
 #hd h1 {
-  font-size: 210%;
+  font-size: 160%;
   font-family: "Arial Narrow", helvetica;
   font-style: italic;
   font-weight: normal !important;
@@ -51,7 +44,6 @@
   text-align: center;
   border-top: 1px solid #5B5F19;
   background: #DCE09C;
-  font-size: 130%;
   font-weight: bold;
 }
 
@@ -86,6 +78,11 @@
   padding-top: 1em;
 }
 
+#content h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
 #content .post-snippet {
   margin-bottom: 1em;
   border-bottom: 1px solid #DCE09C;
@@ -95,10 +92,8 @@
   margin-bottom: 1em;
 }
 
-#content .post-head h1 {
-  font-size: 175%;
-  margin-bottom: 0;
-  font-weight: bold;
+#content .post-head p.byline {
+  margin-top: -0.8em;
 }
 
 #content .post-head h2 a, #content .post-head h3 a {
@@ -168,6 +163,7 @@
 
 html,body {
   background: #A2A749;
+  font-size: 100%;
 }
 
 a, a:visited, a:active, a:hover {
