@@ -1,4 +1,5 @@
 ---
+author: Wenbing
 layout: default
 top: Blog Top
 feed: atom.xml
@@ -10,7 +11,13 @@ feed: atom.xml
 
 <div id="bd" class="clearfix">
   <div id="content" class="span-16 prepend-1 colborder">
+    <div class="post-head">
+      <h1>{{ page.title }}</h1>
+      <p>Posted at {{ page.date | date_to_long_string }} by {{ page.author }}</p>
+    </div>
+    <div class="post-content">
     {{ content }}
+    </div>
   </div>
 
   <div id="sidebar" class="span-6 last">
@@ -18,17 +25,3 @@ feed: atom.xml
   </div>
   <!-- end #bd div -->
 </div>
-
-<!--
-<div id="disqus_thread"></div>
-
-<script type="text/javascript">
-	//var disqus_iframe_css = "/files/css/screen.css";
-	var disqus_title = "{{ page.title }}";
-	var disqus_message = "{{ page.excerpt }}";
-</script>
-<script type="text/javascript" src="http://quliaojie.disqus.com/embed.js"></script>
-<noscript>
-		<a href="http://disqus.com/?ref_noscript=quliaojie">查看评论</a>
-</noscript>
--->

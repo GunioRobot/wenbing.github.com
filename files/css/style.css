@@ -95,6 +95,12 @@
   margin-bottom: 1em;
 }
 
+#content .post-head h1 {
+  font-size: 175%;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
 #content .post-head h2 a, #content .post-head h3 a {
   text-decoration: none;
 }
