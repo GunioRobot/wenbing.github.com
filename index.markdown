@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: blog
 title: Home
 
 section: home
@@ -9,8 +9,10 @@ Recent Posts
 ------------
 
 +-- {.section}
+<!-- commented
 [Blog](/blog)
 ==============
+-->
 最近发表的文章：
 {% for post in site.categories.blog limit:3 %}
 <div class="post-snippet">
