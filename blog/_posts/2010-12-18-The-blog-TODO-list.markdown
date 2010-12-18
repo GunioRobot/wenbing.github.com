@@ -12,7 +12,7 @@ excerpt: 这个简单的博客需要实现的几个功能，包括：1. 实现�
 * l修改 about 页面，contact 页面
 * l修改 sidebar 
 * l利用Douban API 获取书影音，显示在sidebar
-* l需要的花添加 Disqus 的评论系统
+* l需要的话添加 Disqus 的评论系统
 * lJekyll 应该可以实现翻页效果，可以尝试之
 * __list 内首字母是中文有问题__
 
