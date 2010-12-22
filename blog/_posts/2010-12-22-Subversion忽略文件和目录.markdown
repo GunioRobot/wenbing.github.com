@@ -17,7 +17,7 @@ excerpt: 如果你使用 Subversion(svn) 等版本控制系统，那么一定会
 svn:ignore 属性好像只支持 * 通配符。不知吃正则表达式或其他玩意。
 
 但 * 通配符已经足够强大，因为你可以这样做：
->    *.class
+>    *.class  
 >    test_*
 
 上面的命令会忽略所有以 .class 结尾和以 test_ 开头的文件。
