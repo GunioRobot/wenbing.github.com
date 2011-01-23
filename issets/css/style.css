@@ -120,6 +120,9 @@
   font-size: 1.1em;
   line-height: 1.2em;
 }
+#content .post-content li p {
+  margin-bottom: 0.4em;
+}
 
 #sidebar {
   padding-top: 1em;
