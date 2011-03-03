@@ -1,18 +1,18 @@
 ---
 layout: blog
-title: Blog Home 
-section: Blog
+title: Poem Home 
+section: Poem
 
 feed: atom.xml
-keywords: Blog,网志
+keywords: Poem,诗
 ---
 
 {{paginator.per_page}}
 
-Recent Posts
+Recent Poem Posts
 ------------
 
-{% for post in site.categories.blog limit:8 %}
+{% for post in site.categories.poem limit:8 %}
   <div class="post-snippet">
     <div class="post-head">
       <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
@@ -28,7 +28,6 @@ Recent Posts
 <a href="all.html">往期日志 &rarr;</a>
 </p>
 
-<!--
 <script type="text/javascript">
 //<![CDATA[
   function get_disqus_comments() {
@@ -41,7 +40,6 @@ Recent Posts
     }
     document.write('<script type="text/javascript" src="http://disqus.com/forums/quliaojie/get_num_replies.js' + query + '"></' + 'script>');
   };
-  window.onload = get_disqus_comments();
+  //window.onload = get_disqus_comments();
 //]]>
 </script>
--->
