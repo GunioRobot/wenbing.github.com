@@ -7,8 +7,6 @@ feed: atom.xml
 keywords: Blog,网志
 ---
 
-{{paginator.per_page}}
-
 Recent Posts
 ------------
 

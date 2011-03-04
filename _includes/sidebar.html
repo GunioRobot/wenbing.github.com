@@ -1,23 +1,35 @@
-    <h1 class="hide-offscreen">相关 信息</h1>
-    <h2>More of Me</h2>
-    <ul>
-      <li>Douban: <a href="http://www.douban.com/people/yongyezhimian">Douban</a></li>
-      <li>Github: <a href="http://www.github.com/wenbingzheng">Projects</a></li>
-    </ul>
-    <h2>RSS Feed</h2>
-    <ul>
-      <li><a href="/blog/atom.xml">订阅</a></li>
-    </ul>
-    <h2>Read, Watch, Listen</h2>
-    <ul>
-      <li>Douban API</li>
-    </ul>
-    <h2>Blogroll</h2>
-    <ul>
-      <li><a href="http://jekyllrb.com/">Jekyll</a></li>
-      <li><a href="http://daringfireball.net/projects/markdown">Markdown</a></li>
-    </ul>
-    <h2>Archives</h2>
-    <ul>
-      <li><a href="/blog/all.html">All Posts</a></li>
-    </ul>
+<h1 class="hide-offscreen">相关 信息</h1>
+<h2>More of Me</h2>
+<ul>
+  <li>Douban: <a href="http://www.douban.com/people/yongyezhimian">Douban</a></li>
+  <li>Github: <a href="http://www.github.com/wenbingzheng">Projects</a></li>
+</ul>
+<h2>RSS Feed</h2>
+<ul>
+  <li><a href="/blog/atom.xml">订阅</a></li>
+</ul>
+<h2>Read, Watch, Listen</h2>
+<ul>
+  <li>Douban API</li>
+</ul>
+<script type="text/javascript">
+//<![CDATA[
+  Do.add('douban-api', {path: 'http://www.douban.com/js/api.js?v=2', type:'js'});
+  Do.add('api-parser', {path: 'http://www.douban.com/js/api-parser.js?v=1', type:'js', requires:['douban-api']});
+  Do.add('mustache', {path: '/issets/js/mustache.js', type:'js'});
+  Do('mustache');
+
+  Do('api-parser', function() {
+    //
+  });
+//]]>
+</script>
+<h2>Blogroll</h2>
+<ul>
+  <li><a href="http://jekyllrb.com/">Jekyll</a></li>
+  <li><a href="http://daringfireball.net/projects/markdown">Markdown</a></li>
+</ul>
+<h2>Archives</h2>
+<ul>
+  <li><a href="/blog/all.html">All Posts</a></li>
+</ul>
