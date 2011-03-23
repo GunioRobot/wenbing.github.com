@@ -2,6 +2,7 @@
 layout: blog-post
 title: jQuery 技巧
 excerpt: 
+tags: [jquery]
 ---
 
 1. l保持更新

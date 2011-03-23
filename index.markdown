@@ -19,12 +19,3 @@ Recent Posts
     </div>
   </div>
 {% endfor %}
-
-<!-- 
-comment as in html
-+-- {.section}
-[Blog](/blog)
-==============
-最近发表的文章：
-=--
--->

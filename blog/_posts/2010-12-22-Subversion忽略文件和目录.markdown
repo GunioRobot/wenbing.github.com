@@ -2,6 +2,7 @@
 layout: blog-post
 title: Subversion 中忽略文件和目录
 excerpt: 如果你使用 Subversion(svn) 等版本控制系统，那么一定会遇到提交时那些测试文件也出现的问题。其实让 Subversion 忽略这些目录和文件是很简单的。
+tags: [svn]
 ---
 
 本文翻译自：[原文][origin]

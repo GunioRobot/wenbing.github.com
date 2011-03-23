@@ -2,6 +2,7 @@
 layout: blog-post
 title: 学习 Markdown 语法
 excerpt: Follow wiki page http://en.wikipedia.org/wiki/Markdown, Study Markdown Syntax, Ready to write blog on this blog system -- pages powered by github.
+tags: [markdown]
 ---
 
 简单的了解了 [Markdown][markdown] 的语法，有几个地方写得不对，等以后写文章时用到再尝试吧！

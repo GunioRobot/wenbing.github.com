@@ -2,6 +2,7 @@
 layout: blog-post
 title: 跨浏览器支持的 inline-block 样式
 excerpt: 
+tags: [css]
 ---
 
 Inline-block 布局可以解决很多问题。比如是的 vertical-align 正常工作。但浏览器对它的支持不是很好。

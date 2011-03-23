@@ -2,6 +2,7 @@
 layout: blog-post
 title: CSS 2.1 渲染模型
 excerpt: 翻译自 W3C 的介绍 -- 浏览器如何使用 CSS 渲染网页内容。当然，具体的浏览器各有差别。
+tags: [css]
 ---
 
 在 CSS 2.1 渲染模型下，浏览器通过以下步骤处理源代码：

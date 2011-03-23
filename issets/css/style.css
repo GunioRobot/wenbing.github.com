@@ -13,7 +13,7 @@
 
 #doc h2, #doc h3 {
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.1em;
 }
 
 /* #hd */
@@ -89,6 +89,22 @@
   border-bottom: 1px solid #DCE09C;
 }
 
+#tagnav li {
+  padding: 0.2em 0.8em 0.2em 0;
+}
+#tagnav li a {
+  text-decoration: none;
+}
+#tagnav li a.tc_1 { font-size: 1em; }
+#tagnav li a.tc_2 { font-size: 1.2em; }
+#tagnav li a.tc_3 { font-size: 1.4em; }
+#tagnav li a.tc_4 { font-size: 1.6em; }
+#tagnav li a.tc_5 { font-size: 1.8em; }
+#tagnav li a.tc_6 { font-size: 2em; }
+#tagnav li a.tc_7 { font-size: 2.2em; }
+#tagnav li a.tc_8 { font-size: 2.4em; }
+#tagnav li a.tc_9 { font-size: 2.6em; }
+
 #content .post-head {
   margin-bottom: 1em;
 }
@@ -116,11 +132,20 @@
   margin-bottom: 0;
 }
 
+#content .post-head .taglist li {
+  padding: 0 3px;
+}
+
 #content .post-content p {
   margin-bottom: 1em;
   font-size: 1.1em;
   line-height: 1.2em;
 }
+
+#content .post-content li {
+  font-size: 1.1em;
+}
+
 #content .post-content li p {
   margin-bottom: 0.4em;
 }
@@ -183,3 +208,9 @@ blockquote {
 acronym {
   border: 0;
 }
+
+pre {
+  margin: 1em 0 0;
+}
+
+ul, ol { list-style-type: none; margin: 0; padding: 0; }
