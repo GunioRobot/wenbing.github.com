@@ -1,13 +1,21 @@
+
 <h1 class="hide-offscreen">相关 信息</h1>
+
+{% if page.url contains '/blog'%}
+  {% include taglist.html %}
+{% endif %}
+
 <h2>More of Me</h2>
 <ul>
   <li>Douban: <a href="http://www.douban.com/people/yongyezhimian">Douban</a></li>
   <li>Github: <a href="http://www.github.com/wenbingzheng">Projects</a></li>
 </ul>
+
 <h2>RSS Feed</h2>
 <ul>
   <li><a href="/blog/atom.xml">订阅</a></li>
 </ul>
+
 <h2>Read, Watch, Listen</h2>
 <script type="text/javascript">
 //<![CDATA[
@@ -21,11 +29,13 @@
   });
 //]]>
 </script>
+
 <h2>Blogroll</h2>
 <ul>
   <li><a href="http://jekyllrb.com/">Jekyll</a></li>
   <li><a href="http://daringfireball.net/projects/markdown">Markdown</a></li>
 </ul>
+
 <h2>Archives</h2>
 <ul>
   <li><a href="/blog/all.html">All Posts</a></li>

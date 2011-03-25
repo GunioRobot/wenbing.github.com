@@ -1,0 +1,47 @@
+
+{% assign tags = '' %}
+
+<h2>Tag Cloud</h2>
+<p id="tagcloud">
+{% for post in site.categories.blog %}
+  {% for tag in post.tags %}
+    {% capture tags %}{{ tags | append:' ' | append:tag }}{% endcapture %}
+  {% endfor %}
+{% endfor %}
+</p>
+
+<script>
+  Do('/issets/js/tag.js', function() {
+    var tags = '{{tags}}';
+    addTagNav(tags);
+    //$('#sidebar').show();
+
+    if(!location.hash) {
+      $('.post-snippet').show();
+    } else {
+      showPost(location.hash.substr(1));
+    }
+
+    $('.tag').bind('click', function(e) {
+      if(location.pathname === '/blog/all.html') {
+        e.preventDefault();
+        e.stopPropagation();
+        location.href = '/blog/all.html#'+$.trim($(this).text());
+        location.reload();
+      }
+    });
+  });
+</script>
+
+
+{% comment %}
+  {% assign tags = '' %}
+  {% capture tags %}{{ tags | append:' ' | append:tag }}{% endcapture %}
+  <p id="tagcloud">
+    <a class="tag" href="/blog/all.html#all" title="view all posts">ALL</a>
+    <a class="tag" href="/blog/all.html#{{tag}}" title="view all posts in tag '{{tag}}'">{{tag}}</a>
+  </p>
+  {% assign i = 0 %}
+  {% assign sum = 0 %}
+  {% capture sum %}{{ sum | plus:1 }}{% endcapture %}
+{% endcomment %}

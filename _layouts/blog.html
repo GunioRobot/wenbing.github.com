@@ -12,7 +12,12 @@ feed: atom.xml
     {{ content }}
   </div>
 
-  <div id="sidebar" class="span-6 last">
+  {% comment %}
+  {% if page.url contains '/blog'%}
+    {% assign sidebarShow = 'hide' %}
+  {% endif %}
+  {% endcomment %}
+  <div id="sidebar" class="span-6 last ">
     {% include sidebar.html %}
   </div>
   <!-- end #bd div -->

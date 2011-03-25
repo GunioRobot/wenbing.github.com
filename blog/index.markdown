@@ -12,19 +12,9 @@ Recent Posts
 
 {% for post in site.categories.blog limit:20 %}
 <div class="hide post-snippet {{ post.tags | join:' ' }}">
-  <div class="post-head clearfix">
+  <div class="post-head">
     <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-    <p class="left"><em>Date:</em> {{ post.date | date_to_long_string }}</p>
-    {% if post.tags != empty %}
-    <ul class="taglist right">
-      <em class="left">Tags:</em>
-      {% for tag in post.tags limit:5 %}
-        <li class="tag left">
-          <a href="#{{tag}}" title="view posts in tag '{{tag}}'">{{tag}}</a>
-        </li>
-      {% endfor %}
-    </ul>
-    {% endif %}
+    <p><em>Date:</em> {{ post.date | date_to_long_string }}</p>
   </div>
 
   <div class="post-content">
@@ -34,14 +24,8 @@ Recent Posts
 {% endfor %}
 
 <p>
-<a href="all.html">往期日志 &rarr;</a>
+  <a href="all.html">往期日志 &rarr;</a>
 </p>
-
-<script>
-  Do('/issets/js/tag.js', function() {
-    // other stuff
-  });
-</script>
 
 <!--
 <script type="text/javascript">

@@ -89,21 +89,17 @@
   border-bottom: 1px solid #DCE09C;
 }
 
-#tagnav li {
-  padding: 0.2em 0.8em 0.2em 0;
-}
-#tagnav li a {
-  text-decoration: none;
-}
-#tagnav li a.tc_1 { font-size: 1em; }
-#tagnav li a.tc_2 { font-size: 1.2em; }
-#tagnav li a.tc_3 { font-size: 1.4em; }
-#tagnav li a.tc_4 { font-size: 1.6em; }
-#tagnav li a.tc_5 { font-size: 1.8em; }
-#tagnav li a.tc_6 { font-size: 2em; }
-#tagnav li a.tc_7 { font-size: 2.2em; }
-#tagnav li a.tc_8 { font-size: 2.4em; }
-#tagnav li a.tc_9 { font-size: 2.6em; }
+#tagcloud { margin-bottom: 1em; }
+#tagcloud .tag { padding: 0 0.3em; }
+#tagcloud .tag.tc_1 { font-size: 1em; }
+#tagcloud .tag.tc_2 { font-size: 1.2em; }
+#tagcloud .tag.tc_3 { font-size: 1.4em; }
+#tagcloud .tag.tc_4 { font-size: 1.6em; }
+#tagcloud .tag.tc_5 { font-size: 1.8em; }
+#tagcloud .tag.tc_6 { font-size: 2em; }
+#tagcloud .tag.tc_7 { font-size: 2.2em; }
+#tagcloud .tag.tc_8 { font-size: 2.4em; }
+#tagcloud .tag.tc_9 { font-size: 2.6em; }
 
 #content .post-head {
   margin-bottom: 1em;
@@ -130,10 +126,6 @@
 #content .post-head h3, 
 #content .post-head p {
   margin-bottom: 0;
-}
-
-#content .post-head .taglist li {
-  padding: 0 3px;
 }
 
 #content .post-content p {

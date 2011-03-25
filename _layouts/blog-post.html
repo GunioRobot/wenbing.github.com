@@ -13,9 +13,14 @@ feed: atom.xml
   <div id="content" class="span-16 prepend-1 colborder">
     <div class="post-head">
       <h1>{{ page.title }}</h1>
-      <p class="byline">
-        Posted at {{ page.date | date_to_long_string }} by {{ page.author }}
-      </p>
+      <div class="clearfix">
+        <p class="post-date byline left">
+          Posted at {{ page.date | date_to_long_string }} by {{ page.author }}
+        </p>
+        <p class="post-tag right">
+          Tag: {{ page.tags | join:', ' }}
+        </p>
+      </div>
     </div>
     <div class="post-content">
     {{ content }}
