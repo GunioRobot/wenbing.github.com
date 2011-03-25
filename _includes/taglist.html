@@ -1,6 +1,4 @@
 
-{% assign tags = '' %}
-
 <h2>Tag Cloud</h2>
 <p id="tagcloud">
 {% for post in site.categories.blog %}
@@ -33,15 +31,3 @@
   });
 </script>
 
-
-{% comment %}
-  {% assign tags = '' %}
-  {% capture tags %}{{ tags | append:' ' | append:tag }}{% endcapture %}
-  <p id="tagcloud">
-    <a class="tag" href="/blog/all.html#all" title="view all posts">ALL</a>
-    <a class="tag" href="/blog/all.html#{{tag}}" title="view all posts in tag '{{tag}}'">{{tag}}</a>
-  </p>
-  {% assign i = 0 %}
-  {% assign sum = 0 %}
-  {% capture sum %}{{ sum | plus:1 }}{% endcapture %}
-{% endcomment %}
