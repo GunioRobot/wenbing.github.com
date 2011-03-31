@@ -1,3 +1,12 @@
+var sTags = function() {
+  var arr = [];
+  var tagEls = $('.post-tag span');
+  tagEls.each(function() {
+    arr.push($(this).text());
+  });
+  console.log(arr);
+  return arr.join(' ');
+};
 var addTagNav = function(tags) {
   tags = $.trim(tags).split(' ');
   var i=0, len=tags.length,

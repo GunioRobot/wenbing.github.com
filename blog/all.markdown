@@ -16,7 +16,12 @@ Posts Archives
   <div class="hide post-snippet {{ post.tags | join:' ' }}">
     <div class="post-head">
       <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-      <p><em>Date:</em> {{ post.date | date_to_long_string }}</p>
+      <div class="clearfix">
+        <p class="left"><em>Date:</em> {{ post.date | date_to_long_string }}</p>
+        <p class="post-tag right">
+          <em>Tag: </em><span>{{ post.tags | join:', ' }}</span>
+        </p>
+      </div>
     </div>
     <div class="post-content">
       <p>{{ post.excerpt }}</p>

@@ -1,16 +1,11 @@
 
 <h2>Tag Cloud</h2>
 <p id="tagcloud">
-{% for post in site.categories.blog %}
-  {% for tag in post.tags %}
-    {% capture tags %}{{ tags | append:' ' | append:tag }}{% endcapture %}
-  {% endfor %}
-{% endfor %}
 </p>
 
 <script>
   Do('/issets/js/tag.js', function() {
-    var tags = '{{tags}}';
+    var tags = sTags();
     addTagNav(tags);
     //$('#sidebar').show();
 

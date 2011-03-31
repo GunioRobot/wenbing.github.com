@@ -89,7 +89,7 @@
   border-bottom: 1px solid #DCE09C;
 }
 
-#tagcloud { margin-bottom: 1em; }
+#tagcloud { margin-bottom: 1em; min-height: 60px; height:auto!important; height:60px; overflow:visible; }
 #tagcloud .tag { padding: 0 0.3em; }
 #tagcloud .tag.tc_1 { font-size: 1em; }
 #tagcloud .tag.tc_2 { font-size: 1.2em; }
