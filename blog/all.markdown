@@ -19,7 +19,7 @@ Posts Archives
       <div class="clearfix">
         <p class="left"><em>Date:</em> {{ post.date | date_to_long_string }}</p>
         <p class="post-tag right">
-          <em>Tag: </em><span>{{ post.tags | join:', ' }}</span>
+          <em>Tag: </em><span>{{ post.tags | join:'</span>, <span>' }}</span>
         </p>
       </div>
     </div>
