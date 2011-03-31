@@ -1,17 +1,3 @@
-var _log = function(e) {
-  if(window.console && window.console.log) {
-    window.console.log(e);
-  }
-};
-var sTags = function() {
-  var arr = [];
-  var tagEls = $('.post-tag span');
-  
-  tagEls.each(function() {
-    arr.push($(this).text());
-  });
-  return arr.join(' ');
-};
 var addTagNav = function(tags) {
   tags = $.trim(tags).split(' ');
   var i=0, len=tags.length,

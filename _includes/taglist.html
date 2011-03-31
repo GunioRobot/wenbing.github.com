@@ -1,3 +1,6 @@
+<span id="all-tags-span" class="hide">
+  {% for post in site.categories.blog %}{{ post.tags | join:' ' }} {% endfor %}
+</span>
 
 <h2>Tag Cloud</h2>
 <p id="tagcloud">
@@ -5,9 +8,8 @@
 
 <script>
   Do('/issets/js/tag.js', function() {
-    var tags = sTags();
+    var tags = $('#all-tags-span').text();
     addTagNav(tags);
-    //$('#sidebar').show();
 
     if(!location.hash) {
       $('.post-snippet').show();
