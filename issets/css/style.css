@@ -1,5 +1,23 @@
+html,body {
+  background: #A2A749;
+  font-size: 100%;
+}
 
+a, a:visited, a:active, a:hover {
+  color: #666600;
+}
 
+blockquote {
+  background-image: url(/files/images/quote.gif);
+  background-repeat: no-repeat;
+}    
+acronym {
+  border: 0;
+}
+
+pre {
+  margin: 1em 0 0;
+}
 
 #doc {
   background: #ffffff;
@@ -144,6 +162,21 @@
 
 #me p span { padding: 0 1em; }
 
+#disqus_thread h3 {
+  margin:20px 0;
+  font-size:22px;
+}
+#disqus_thread {
+  margin:50px 0 0;
+}
+div.dsq-options, 
+div.dsq-sharing-options, 
+div.dsq-dc-logo, 
+#dsq-global-toolbar, 
+#dsq-pagination {
+  display:none !important;
+}
+
 #sidebar {
   padding-top: 1em;
   padding-right: 25px;
@@ -182,26 +215,3 @@
   position: absolute;
   left: -1000px;
 }
-
-
-html,body {
-  background: #A2A749;
-  font-size: 100%;
-}
-
-a, a:visited, a:active, a:hover {
-  color: #666600;
-}
-
-blockquote {
-  background-image: url(/files/images/quote.gif);
-  background-repeat: no-repeat;
-}    
-acronym {
-  border: 0;
-}
-
-pre {
-  margin: 1em 0 0;
-}
-
