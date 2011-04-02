@@ -1,6 +1,6 @@
 
 html,body {
-  background: #A2A749;
+  background: #a2a749;
   font-size: 100%;
 }
 
@@ -8,7 +8,8 @@ body {
   font-family: arial;
 }
 
-a, a:visited, a:active, a:hover {
+a, a:visited, 
+a:active, a:hover {
   color: #666600;
 }
 
@@ -16,6 +17,7 @@ blockquote {
   background-image: url(/files/images/quote.gif);
   background-repeat: no-repeat;
 }    
+
 acronym {
   border: 0;
 }
@@ -26,7 +28,7 @@ pre {
 
 #doc {
   background: #ffffff;
-  border: 1px solid #5B5F19;
+  border: 1px solid #5b5f19;
   border-top: 0;
   border-bottom: 0;
   -moz-box-shadow: 0 0 1em black;
@@ -42,7 +44,7 @@ pre {
 
 /* #hd */
 #hd {
-  border-bottom: 1px solid #5B5F19;
+  border-bottom: 1px solid #5b5f19;
 }
 
 #hd h1 {
@@ -66,8 +68,8 @@ pre {
   margin: 0;
   padding: 0.5em 1em;
   text-align: center;
-  border-top: 1px solid #5B5F19;
-  background: #DCE09C;
+  border-top: 1px solid #5b5f19;
+  background: #dce09c;
   font-weight: bold;
 }
 
@@ -75,8 +77,11 @@ pre {
   display:inline;
 }
 
-#hd ul li a{
+#hd ul li a {
+  display:-moz-inline-stack;                                                                         
   display:inline-block;
+  zoom:1;
+  *display:inline;
   margin-left: 2em;
 }
 
@@ -98,7 +103,7 @@ pre {
 #content {
   margin-right: 20px;
   padding-left: 20px;
-  border-right-color: #5B5F19;
+  border-right-color: #5b5f19;
   padding-top: 1em;
   min-height: 400px;
 }
@@ -106,14 +111,22 @@ pre {
 #content h1 {
   font-size: 1.5em;
   font-weight: bold;
+  margin-bottom: 0px;
 }
 
 #content .post-snippet {
   margin-bottom: 1em;
-  border-bottom: 1px solid #DCE09C;
+  border-bottom: 1px solid #dce09c;
 }
 
-#tagcloud { margin-bottom: 1em; min-height: 60px; height:auto!important; height:60px; overflow:visible; }
+#tagcloud { 
+  margin-bottom: 1em; 
+  min-height: 60px; 
+  height:auto !important; 
+  height:60px; 
+  overflow:visible; 
+}
+
 #tagcloud .tag { padding: 0 0.3em; }
 #tagcloud .tag.tc_1 { font-size: 1em; }
 #tagcloud .tag.tc_2 { font-size: 1.2em; }
@@ -129,15 +142,13 @@ pre {
   margin-bottom: 1em;
 }
 
-#content .post-head p.byline {
-  margin-top: -0.8em;
-}
-
-#content .post-head h2 a, #content .post-head h3 a {
+#content .post-head h2 a, 
+#content .post-head h3 a {
   text-decoration: none;
 }
 
-#content .post-head h2 a:hover, #content .post-head h3 a:hover {
+#content .post-head h2 a:hover, 
+#content .post-head h3 a:hover {
   color: #000000;
   text-decoration: underline;
 }
