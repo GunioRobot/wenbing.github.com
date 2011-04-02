@@ -34,7 +34,6 @@ pre {
   -moz-box-shadow: 0 0 1em black;
   -webkit-box-shadow: 0 0 1em black;
   box-shadow: 0 0 1em black;
-  text-shadow: 0 1px 0 white;
 }
 
 #doc h2, #doc h3 {
@@ -71,6 +70,7 @@ pre {
   border-top: 1px solid #5b5f19;
   background: #dce09c;
   font-weight: bold;
+  text-shadow: white 0 1px 0;
 }
 
 #hd ul li {
