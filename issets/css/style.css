@@ -1,6 +1,11 @@
+
 html,body {
   background: #A2A749;
   font-size: 100%;
+}
+
+body {
+  font-family: arial;
 }
 
 a, a:visited, a:active, a:hover {
@@ -27,6 +32,7 @@ pre {
   -moz-box-shadow: 0 0 1em black;
   -webkit-box-shadow: 0 0 1em black;
   box-shadow: 0 0 1em black;
+  text-shadow: 0 1px 0 white;
 }
 
 #doc h2, #doc h3 {
