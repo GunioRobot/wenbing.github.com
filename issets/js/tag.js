@@ -1,5 +1,7 @@
+(function() {
+
 var addTagNav = function(tags) {
-  tags = $.trim(tags).split(' ');
+  tags = $.trim(tags).split(/\s+/);
   var i=0, len=tags.length,
       tagname, otags={}, sum=0;
   for(; tagname=tags[i++]; ) {
@@ -13,7 +15,7 @@ var addTagNav = function(tags) {
   var tagc, html=[];
   //html.push('<h2 class="hide">Tag Cloud</h2>');
   //html.push('<p id="tagcloud" class="hide">');
-  html.push('  <a class="tag" href="/blog/all.html#all" title="view all posts">ALL</a>');
+  html.push('  <a class="tag" href="/blog/all.html" title="view all posts">ALL</a>');
   for(var tag in otags) {
     if(otags.hasOwnProperty(tag)) {
       tagc = Math.round(otags[tag].count / (sum / 10)); // 1-10
@@ -23,7 +25,12 @@ var addTagNav = function(tags) {
   //html.push('</p>');
   $('#tagcloud').hide().append(html.join('')).show();
 };
-var showPost = function(tag) {
+
+this.Tag = function(tags) {
+  addTagNav(tags);
+}
+
+this.Tag.showTagPosts = function(tag) {
   tag = $.trim(tag) || 'all';
   var posts = $('.post-snippet');
   if(tag.toLowerCase() !== 'all') {
@@ -33,3 +40,5 @@ var showPost = function(tag) {
   }
 };
 
+
+})();

@@ -10,7 +10,9 @@ keywords: 网志,存档
 Posts Archives
 --------------
 
-这是 _[Blog Posts](/blog)_ 下的全部文章。按时间倒序排列。
+这是 _[Blog Posts](/blog)_ 下
+<span id="tag-title"></span>
+的全部文章。按时间倒序排列。
 
 {% for post in site.categories.blog %}
   <div class="hide post-snippet {{ post.tags | join:' ' }}">
@@ -29,3 +31,15 @@ Posts Archives
   </div>
 {% endfor %}
 
+<script type="text/javascript">
+//<![CDATA[
+Do(function() {
+  var hash = $.trim(location.hash).toLowerCase();
+  if(hash && hash !== '#all') {
+    var tagtitle = $('#tag-title');
+    var tag = location.hash.slice(1);
+    tagtitle.html('标签为 <em>'+tag+'</em> '+tagtitle.html());
+  };
+});
+//]]>
+</script>

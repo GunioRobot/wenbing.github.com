@@ -6,12 +6,7 @@ section: about
 keywords: about me, Wenbing Zheng
 ---
 
-<!--
-<img src='/issets/images/chyyy.jpg' title='春-夜-月-樱' alt='春-夜-月-樱-图' width='120px' class="right" />
--->
-
-<div id="me">
-</div>
+<div id="me"></div>
 
 <script type="text/javascript">
 //<![CDATA[
@@ -42,3 +37,18 @@ keywords: about me, Wenbing Zheng
 
 //]]>
 </script>
+
+<h2>Read, Watch, Listen</h2>
+<script type="text/javascript">
+//<![CDATA[
+  Do.add('douban-api', {path: 'http://www.douban.com/js/api.js?v=2', type:'js'});
+  Do.add('api-parser', {path: 'http://www.douban.com/js/api-parser.js?v=1', type:'js', requires:['douban-api']});
+  Do.add('mustache', {path: '/issets/js/mustache.js', type:'js'});
+  Do('mustache');
+
+  Do('api-parser', function() {
+    //
+  });
+//]]>
+</script>
+

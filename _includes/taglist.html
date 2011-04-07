@@ -9,19 +9,20 @@
 <script>
   Do('/issets/js/tag.js', function() {
     var tags = $('#all-tags-span').text();
-    addTagNav(tags);
+    Tag(tags);
 
     if(!location.hash) {
       $('.post-snippet').show();
     } else {
-      showPost(location.hash.substr(1));
+      Tag.showTagPosts(location.hash.substr(1));
     }
 
     $('.tag').bind('click', function(e) {
-      if(location.pathname === '/blog/all.html') {
+      var tag = $.trim($(this).text()).toLowerCase();
+      if(location.pathname === '/blog/all.html' && tag !== 'all') {
         e.preventDefault();
         e.stopPropagation();
-        location.href = '/blog/all.html#'+$.trim($(this).text());
+        location.href = '/blog/all.html#'+tag;
         location.reload();
       }
     });
