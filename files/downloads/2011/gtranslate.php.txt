@@ -1,0 +1,32 @@
+#!/usr/bin/php
+<?php
+
+function translate($str, $to='zh', $from='en') {
+  $key = 'ABQIAAAALhgkauRNWSaWI7t4vjRtlRRwXt2lO-AJdT4O-QJr0n0Jw9vJTxRJjCIeLA4JaxtTKCPOS3wUJ62Epg';
+  $url = 'https://ajax.googleapis.com/ajax/services/language/translate?v=1.0'
+    . '&q='.rawurlencode($str)
+    . '&langpair='.rawurlencode($from.'|'.$to)
+    . '&key='.$key;
+
+  $ch = curl_init();
+  curl_setopt_array($ch, array(
+    CURLOPT_URL=>$url,
+    CURLOPT_RETURNTRANSFER=>1,
+    CURLOPT_REFERER=>'http://wenbing.com',
+  ));
+  $body = curl_exec($ch);
+  curl_close($ch);
+
+  $obj = json_decode($body);
+  if($obj->responseStatus == 200) {
+    return $obj->responseData->translatedText;
+  } else {
+    return $obj->responseStatus.'/'.$obj->responseDetails;
+  }
+}
+
+
+$filename = array_shift($argv);
+foreach($argv as $val) {
+  print(translate($val));
+}
