@@ -65,7 +65,7 @@ It may also be referred to via a reference:
 Here, imageref refers to information somewhere after the image:  
 >`[imageref]: image.url.here "Image title here"`
 test image:  
-![春-夜-月-樱](/issets/images/chyyy.jpg "春-夜-月-樱")
+![春-夜-月-樱](/assets/images/chyyy.jpg "春-夜-月-樱")
 test image link  
 [![春-夜-月-樱][chyyy]][Google]
 
@@ -83,9 +83,15 @@ Horizontal rules are created by placing three or more hyphens, asterisks, or und
 - - -
 ---------------------------------------
 
+__Update__
+
+Markdown 中插入 HTML 代码唯一的限制是块级元素 -- 如, `<div>,<table>,<pre>,<p>,` 等等 
+-- 必须与上下文以空行隔开，而且元素起始标签与结束标签不能有缩进。
+（不能在同一行）
+
 You can visit [Markdown Syntax][markdown-syntax] for more about Markdown Syntax.
 
 [Google]: http://www.google.com/ncr "Google"
-[chyyy]: /issets/images/chyyy.jpg  "春-夜-月-樱"
+[chyyy]: /assets/images/chyyy.jpg  "春-夜-月-樱"
 [markdown]: http://daringfireball.net/projects/markdown "Markdown"
 [markdown-syntax]: http://daringfireball.net/projects/markdown/syntax "Markdown Syntax"

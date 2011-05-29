@@ -21,7 +21,7 @@ _log = function (e) {
 _config = {
     //核心库
     //core_lib: ['http://t.douban.com/js/jquery.min.js'],
-    core_lib: ['/issets/js/jquery.min.js'],
+    core_lib: ['/assets/js/jquery.min.js'],
     
     //模块依赖
     //{ moduleName: {path: 'URL', type:'js|css', requires:['moduleName1', 'fileURL']} }
