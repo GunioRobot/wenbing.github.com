@@ -179,6 +179,8 @@ pre {
 
 #me p span { padding: 0 1em; }
 
+.highlight { margin-bottom:10px; }
+
 #disqus_thread h3 {
   margin:20px 0;
   font-size:22px;

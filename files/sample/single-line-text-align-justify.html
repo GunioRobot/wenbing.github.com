@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<title>单行文本两端对齐</title>
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="screen, projection">
+  <style>
+    #doc { width:960px; margin:20px auto; padding:20px; }
+    #back { display:block; margin:10px 0 0 10px; }
+    h1 { font-size:2em; }
+    h2 { margin-left:2em; }
+    p { margin-left:4em; }
+  </style>
+  <script type="text/javascript" src="/assets/js/jquery.js"></script>
+</head>
+<body>
+
+  <div id="doc">
+
+    <a id="back" href="/blog/single-line-text-align-justify.html">返回</a>
+
+    <h1>单行文本两端对齐</h1>
+
+    <h2>text-align: justify</h2>
+    <p style="text-align:justify;">single line text align justify multi line line text align justify multi line linetextalignjustify multi line line textalignjustifymultilinelinetext align justify</p>
+    <p style="text-align:justify;">single line text align justify</p>
+    <p><strong>这不会影响单行文本，即最后一行。</strong></p>
+
+    <p style="text-align:justify;">单行文本两端对齐</p>
+    <p style="text-align:justify;">单行文本两端对齐，单行文本两端对齐，单行文本两端对齐，单行文本两端对齐，单行文本两端对齐，单行文本两端对齐，单行文本两端对齐，单行文本两端对齐，单行文本两端对齐，。</p>
+    <p><strong>对中文没法起作用。</strong></p>
+
+    <h2>text-justify: inter-ideograph</h2>
+    <p style="text-align:justify; text-justify:inter-ideograph;width:400px;border:1px solid #d2d2d2;padding:10px;">inter-ideograph : 为表意字文本提供完全两 端对齐。为表 意字文  本提供完全 两端对齐。为表意 字文本提 供完全两端对齐。为表意字文本提供完全两端对齐。为表意字文本提供完全两端对齐。为表意字文本提 供完 全两端 对齐。他增加或 减少表 意 字和词 间 的空格</p> 
+    <p style="text-align:justify; text-justify:inter-ideograph;width:400px;border:1px solid #d2d2d2;padding:10px;">inter-ideograph : 为表意字文本提供完全两端对齐。他增加或减少表意字和词间的空格</p> 
+    <p><strong>对中文好像也没法起作用。</strong></p>
+
+    <style>
+      .pl { width:130px; padding:10px; }
+      .pl-2 { width:226px; letter-spacing:96px; margin-right:-96px; }
+      .pl-3 { width:170px; letter-spacing:40px; margin-right:-40px; }
+      .pl-4 { width:151px; letter-spacing:21px; margin-right:-21px; }
+      .pl-5 { width:142px; letter-spacing:12px; margin-right:-12px; }
+      </style>
+    <h2>单行文本两端对齐解决方案</h2>
+    <p><span class="pl">单行文本两端对齐</span> 同一行其他文本</p>
+    <p><span class="pl pl-2">单行</span> 同一行其他文本</p>
+    <p><span class="pl pl-3">文本两</span> 同一行其他文本</p>
+    <p><span class="pl">单行文本两端对齐</span> 同一行其他文本</p>
+    <p><span class="pl pl-4">端对齐齐</span> 同一行其他文本</p>
+    <p><span class="pl pl-5">端对齐齐齐</span> 同一行其他文本</p>
+    <p><span class="pl">单行文本两端对齐</span> 同一行其他文本</p>
+
+  </div>
+
+</body>
+</html>
+
