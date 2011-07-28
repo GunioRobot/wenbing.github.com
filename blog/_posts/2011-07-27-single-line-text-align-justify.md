@@ -24,6 +24,22 @@ tags: [css]
 
 参看[单行文本两端对齐][1]
 
+--------------------
+
+__更新__
+
+使用 em 单位更方便，也更准确：
+
+
+{% highlight css %}
+.pl { width:8em; padding:10px; }
+.pl-2 { width:17em; letter-spacing:6em; margin-right:-6em; }
+.pl-3 { width:10.5em; letter-spacing:2.5em; margin-right:-2.5em; }
+.pl-4 { width:9.25em; letter-spacing:1.25em; margin-right:-1.25em; }
+.pl-5 { width:8.75em; letter-spacing:0.75em; margin-right:-0.75em; }
+{% endhighlight %}
+
+
 [1]: /files/sample/single-line-text-align-justify.html "text align sample"
 
 
