@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }} &larr; 可量化和模块化 CSS 架构</title>
+    <link rel="stylesheet" href="/smacss/css/main.css">
+  </head>
+  <body>
+    <div id="header">
+      {% include smacss/header.html %}
+    </div>
+    <div id="content">
+
+      {{ content }}
+
+      <div class="nav">
+      {% include smacss/nav.html %}
+      </div>
+    </div>
+
+    <div id="footer">
+      <p></p>
+      <p>&copy; Jonathan Snook</p>
+    </div>
+
+  </body>
+</html>

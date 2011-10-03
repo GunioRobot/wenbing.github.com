@@ -11,6 +11,9 @@ Me
 </h1>
 
 <div id="me">
+  <address class="vcard">
+    <span class="fn">Wenbing Zheng</span>
+  </address>
 </div>
 
 <h2>

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8">
+    <title>可量化和模块化 CSS 架构 <!--(Scalable and Modular Architecture for CSS)--></title>
+    <link rel="stylesheet" href="../css/main.css">
+  </head>
+  <body>
+    <div id="header">
+      <h2><em><a href="../index.html">可量化和模块化 CSS 架构 <!--(Scalable and Modular Architecture for CSS)--></a></em></h2>
+    </div>
+    <div id="content">
+
+      <h1>状态规则<!--State Rules--></h1>
+
+      <p>状态是用来增强和覆盖所有其它样式的。例如，一个可折叠区块可能处于折叠和展开状态。一个消息可能有成功和失败状态。<!--A state is something that augments and overrides all other styles. For example, an accordion section may be in a collapsed or expanded state. A message may be in a success or error state.--></p>
+
+      <p>状态通常作为布局规则或基本模块类应用到同一个元素。<!--States are generally applied to the same element as a layout rule or applied to the same element as a base module class.--></p>
+
+      <div class="exm">
+        <p class="exm-caption">状态应用到一个元素<!--State applied to an element--></p>
+<pre><code>&lt;div id=&quot;header&quot; class=&quot;s-collapsed&quot;&gt;
+    &lt;form&gt;
+        &lt;div class=&quot;msg s-error&quot;&gt;
+            There is an error!
+        &lt;/div&gt;
+        &lt;label for=&quot;searchbox&quot; class=&quot;s-hidden&quot;&gt;Search&lt;/label&gt;
+        &lt;input type=&quot;search&quot; id=&quot;searchbox&quot;&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+        </div>
+
+        <p> header 元素有一个 ID 。我们可以假定此元素上的所有样式都是布局样式，类 <code>s-collapsed</code> 代表一个折叠状态。可推定，没有这个状态规则，默认是展开状态。<!--The header element just has an ID. As such we can assume that any styles, if there are any, on this element are for layout purposes and that the <code>s-collapsed</code> represents a collapsed state. One might presume that without this state rule, the default is an expanded state.--></p>
+
+        <p><code>msg</code> 模块很简单，并应用了一个错误状态。可知相反的会应用一个成功状态。<!--The <code>msg</code> module is simple enough and has an error state applied to it. One could imagine a success state could be applied to the message, alternatively.--></p>
+
+        <p>最后，标签应用了一个隐藏状态以隐藏但保留给屏幕阅读器使用。这里，其实是作为基本样式，而不是覆盖布局或模块样式。<!--Finally, the field label has a hidden state applied to hide it from sight but still keep it for screen readers. In this case, we're actually applying the state to a base element and not overriding a layout or module.--></p>
+
+        <h2>提示<!--Tips--></h2>
+
+        <p>状态应该独立作用，且通常以单独类名构成。<!--States should be made to stand alone and are usually built of a single class selector.--></p>
+
+        <p>因为状态需要覆盖一个更复杂的模块规则集合， <code>!important</code> 是可以且建议使用的。(之前我说过 <code>!important</code> 是永远不需要使用的，但对于复杂系统，却经常是需要的。) 并不会有很多这样的情况，两个状态同时作用于同一个模块，或者两个状态都改变同样的样式集合，所以使用 <code>!important</code> 处理特殊的冲突应该会很少。<!--Since the state needs to override the style of a more complex module ruleset, the use of <code>!important</code> is allowed and, dare I say, recommended. (I used to say that <code>!important</code> was never needed but on complex systems, it is often a necessity.) You won't normally have two states applied to the same module or two states that tend to affect the same set of styles, so specificity conflicts from using <code>!important</code> should be few and far between.--></p>
+
+        <p>由上可知，要小心使用，只在真正需要时使用 <code>!important</code> (你将会在下面的例子中看到原因)。记住，其他规则尽量避免使用 <code>!important</code> 。只应该状态中使用。<!--With that said, be cautious. Leave <code>!important</code> off until you actually and truly need it (and you'll see why in this next example). Remember, the use of <code>!important</code> should be avoided for all other rule types. Only states should have it.--></p>
+
+        <h2>日历示例<!--Calendar Example--></h2>
+        <p>在遇到继承时，状态会增加一些复杂度。让我们来看一个实际的例子： 一个日历。<!--States can provide some complication when inheritance comes into play. Let's take a look at a practical example: a Calendar.--></p>
+
+        <div class="exm">
+          <p class="exm-caption">日历表格<!--Calendar Table--></p>
+<pre><code>&lt;table class=&quot;cal&quot;&gt;
+    &lt;tr&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;3&lt;/td&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+        &lt;td&gt;7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;!-- repeated 3-4 times --&gt;
+&lt;/table&gt;
+</code></pre>
+          </div>
+
+          <p>日历由表格的行和列组成。每一个单元是一天。默认样式是正常情况下一个天单元看上去的样式。<!--The calendar consists of a table with rows and colums. Each cell is a single day. The default style is is how a day cell should look under normal circumstances.--></p>
+
+          <div class="exm">
+            <p class="exm-caption">天单元<!--The Day Cell--></p>
+<pre><code>.cal td {
+    background-color: #EFEFEF;
+    color: #333;
+}
+</code></pre>
+            </div>
+
+            <p>表格中每个单元都有一个浅灰色背景和深灰色文本。现在，我想高亮哪天是 <em>今天</em> 。 <!--Each cell in my table has a light gray background with dark gray text. Now, we want to highlight which day is <em>today</em>.--></p>
+
+            <div class="exm">
+              <p class="exm-caption">今天样式 <!--Styling Today--></p>
+<pre><code>.cal td.cal-today {
+    background-color: #F33;
+    color: #000;
+}
+</code></pre>
+              </div>
+
+              <p><code>cal-today</code> 类显示 today 类是 cal 模块的一部分。我们也增加了给这个样式覆盖默认样式的特殊性。我们或者在默认状态规则样式定义后面使用 <code>td.cal-today</code> ，或者只使用 <code>.cal-today</code> 选择器，而使用 <code>!important</code> 来重排以使样式成功应用。<!-- The <code>cal-today</code> class shows that the today class is part of the cal module. We're also increasing the specificity which will have this style override the default style. Alternative selector choices could've included just a plain <code>td.cal-today</code> which would have worked as long as it was declared after the default state rule. Had we used just <code>.cal-today</code> as our selector, we would've had to resort to using <code>!important</code> to get this style to work.--></p>
+
+              <p>要知道其中要考虑的情形，第一个方案中，<code>.cal-today</code> 只能应用到一个表格单元元素 (<code>&lt;td&gt;</code>) 上，且应该在一个有类 <code>cal</code> 的元素内 ( 这个在使用 SMACSS 时，应该已经考虑到)。<!--It's important to recognize that there are small decisions that have to be made like this as the project develops. In the direction I chose, I'm saying that the <code>.cal-today</code> class can only be applied on a table cell (<code>&lt;td&gt;</code>) and that it would be inside an element with the <code>cal</code> class (which, using SMACSS, should be considered a given).--></p>
+
+                <p>回到我们的示例，看上去都还不错。现在，这个小日历和一个显示星期信息的大日历相连。我们的小日历需要显示现在的星期数。<!--Getting back to our example, everything looks good. Now, our calendar is a smaller view that's connected to a larger view that shows a week in full detail. Our miniature calendar needs to show which week is the currently selected week.--></p>
+
+              <div class="exm">
+                <p class="exm-caption">选中行<!--Selected Row--></p>
+<pre><code>&lt;tr class=&quot;s-selected&quot;&gt;
+    &lt;td&gt;1&lt;/td&gt;
+    &lt;td class=&quot;cal-today&quot;&gt;2&lt;/td&gt;
+    &lt;td&gt;3&lt;/td&gt;
+    ...
+&lt;/tr&gt;
+</code></pre>
+                </div>
+
+                <p>选中状态会在这个应用中使用的很多，这里正好也用上。这个选中状态样式看上去怎么样？<!--The selected state is being used throughout the application and so it only made sense to use it here. What does the selected style look like?--></p>
+
+                <div class="exm">
+                  <p class="exm-caption">选中行规则<!--Selected Row Rule--></p>
+<pre><code>.s-selected {
+    background-color: #FFD700; /* Yellow */
+    color: #000;
+}</code></pre>
+                  </div>
+
+                  <p>你能看出问题吗？文本颜色是继承了，但是背景颜色被更特殊的基本样式和今天样式覆盖了。<!--Can you see the problem? The problem is that the background colour applies to the table row while the color inheritance gets overridden by the greater specificity of both the base day style and the today style.--></p>
+
+                  <p>可以像上面提到的那样给状态添加 <code>!important</code>，但是它让你给同一个元素应用样式更特殊的同时，也没有多大帮助，因为它不会向下继承到表格单元上。 <code>!important</code> 不会覆盖继承样式，只是专一的。<!--I could add <code>!important</code> to my state, which I've mentioned above as being an acceptable thing to do, but while it increases the specificity when applying the style to the same element, it doesn't help us here because it won't be inherited down to the cell. <code>!important</code> does not override inheritence, just specificity.--></p>
+
+                  <p>也就是说我需要创建一新规则以让选中状态反应到子元素上。<!--That means I need to create new rules to allow the selected state to be reflected on child elements.--></p>
+
+                  <div class="exm">
+                    <p class="exm-caption">表格单元的选中行规则<!--Selected Row Rule for Table Cells--></p>
+<pre><code>.s-selected td {
+    background-color: #FFD700; /* Yellow */
+    color: #000;
+}</code></pre>
+                    </div>
+
+                    <p>现在我们的单元格是什么颜色的？这取决于样式是定义在 <code>cal</code> 类的前面还是后面。如果是后面，那么所有单元格将仍是黄色，在这里，正是我们想要的。<!--What colour will our cells be now? That depends. Was this style declared before or after the <code>cal</code> classes? If it was after, then all cells in the row will be styled correctly. Our today cell will still be coloured in yellow, which, on this particular project, was exactly what we wanted.--></p> 
+
+                    <h3> !important 哪里容易出错 <!--Where !important can go wrong--></h3>
+                    <p>如果我们给选中单元格添加 <code>!important</code> 规则，那么今天单元格的样式就不再显示了，它会跟其它星期的样式一样。<!--For argument's sake, what if we added the <code>!important</code> rule to our select cell CSS? Suddenly our today cell would no longer show today; it would be styled like the rest of the week.--></p>
+                    <p>为了让今天单元格显示正确，我们要新建一个规则，将状态规则和模块规则联合起来。<!--To get the today cell styled correctly, we would have to create a new rule that combines the state rule with the module rule.--></p>
+
+                    <h2>状态和模块联合<!--Combining State Rules with Modules--></h2>
+                    <p>必然的，一个状态规则不能依赖继承来应用正确的样式。正如我们在日历示例中，为表格单元格增加选中状态看到的那样。另外，我们会发现实际上需要把状态和模块样式联合到一个规则中。<!--Inevitably, a state rule will not be able to rely on inheritence to apply its style in the right place. As we saw in the Calendar example, we augmented the selected state with a case for table cells. Other times, we may find the need to actually combine the state and module styles into a single rule.--></p>
+
+                    <p>最后必须提的一点。如果模块规则放在一起，而状态规则另外放在一起，那么这些规则在哪里联合呢？和模块一起。<!--I consider it a line of last defence but a necessity. If your module rules are grouped together and your state rules are grouped together, where does a rule that combines them both go? With the module.--></p>
+
+                    <p>如果你使用选择性加载 CSS ，要考虑把状态放在基本和全部样式的一部分在页面初始化时加载。特定模块的样式可能只需在相应模块出现后加载，也只在那时我们需要考虑联合规则。<!--If you're doing selective loading of your CSS, states will be considered part of the base and global styles that will need to be loaded on initial page load. The styles for a particular module might not need to be loaded until after the fact and it is only then that we care about the combined rule.--></p>
+
+
+
+
+                    <div class="nav">
+                      <hr>
+                      <ol>
+                        <li><a href="fourtypes.html">CSS 规则的四种类型 <!--The Four Types of CSS Rules--></a>
+                        <ol type="i">
+                          <li><a href="type-base.html">基本 <!--Base--></a></li>
+                          <li><a href="type-layout.html">布局 <!--Layout--></a></li>
+                          <li><a href="type-module.html">模块 <!--Module--></a></li>
+                          <li><a href="type-state.html">状态 <!--State--></a></li>
+                        </ol>
+                        </li>
+                        <li><a href="layering.html">在主题和排版上分层 <!--Layering on with Themes and Typography--></a></li>
+                        <li><a href="applicability.html">适应性的深度 <!--Depth of Applicability--></a></li>
+                        <li><a href="selectors.html">选择器性能 <!--Selector Performance--></a></li>
+                        <li><a href="state.html">状态表示 <!--State Representation--></a></li>
+                        <li><a href="formatting.html">附录：格式化代码 <!--Addendum: Formatting Code--></a></li>
+                        <li><a href="resources.html">资源 <!--Resources--></a></li>
+                        <li><a href="changelog.html">变更记录 <!--Changelog--></a></li>
+
+                      </ol>
+
+
+                    </div>
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'smacss'; 
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                     })();
+</script>
+
+                 </div>
+
+                 <div id="footer">
+                   <p>    &larr; <a href="../index.html">Home</a>         </p>
+                   <p>&copy; Jonathan Snook</p>
+                 </div>
+                 <script>
+                   var _gauges = _gauges || [];
+                   (function() {
+                     var t   = document.createElement('script');
+                     t.type  = 'text/javascript';
+                     t.async = true;
+                     t.id    = 'gauges-tracker';
+                     t.setAttribute('data-site-id', '4e2e471c613f5d305b000003');
+                     t.src = '//secure.gaug.es/track.js';
+                     var s = document.getElementsByTagName('script')[0];
+                     s.parentNode.insertBefore(t, s);
+                   })();
+                 </script>
+
+               </body>
+             </html>

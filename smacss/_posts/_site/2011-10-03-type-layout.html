@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8">
+    <title>可量化和模块化 CSS 架构 <!--(Scalable and Modular Architecture for CSS)--></title>
+    <link rel="stylesheet" href="../css/main.css">
+  </head>
+  <body>
+    <div id="header">
+      <h2><em><a href="../index.html">可量化和模块化 CSS 架构 <!--(Scalable and Modular Architecture for CSS)--></a></em></h2>
+    </div>
+    <div id="content">
+
+      <h1>布局规则 <!--Layout Rules--></h1>
+
+      <p>CSS 本质上是用来在页面上布置元素的。然而，页面布局上的主次部分是有区别的。次要部分有提示框、登录表单，主要部分有导航项--头部和尾部。 我将次要部分作为模块，并在下一节深入介绍。这里将主要部分作为布局样式。<!--CSS, by its very nature, is used to lay elements out on the page. However, there is a distinction between layouts dictating the major and minor components of a page. The minor components—such as a callout, or login form, or a navigation item—sit within the scope of major components such as a header or footer. I refer to the minor components as Modules and will dive into those in the next section. The major components are referred to as Layout styles. --></p>
+
+      <p>布局样式也能以重用来分为主样式和次样式。主样式例如头部和尾部通常使用 ID 选择器，尽管类选择器也同样可以。不需在布局样式中使用元素选择器。<!--Layout styles can also be divided into major and minor styles based on reuse. Major styles such as header and footer are likely to be styled using ID selectors, although class selectors could work equally well. It's not necessary to use element selectors with a Layout style.--></p>
+
+
+      <div class="exm">
+        <p class="exm-caption">布局定义 <!--Layout declarations--></p>
+<pre><code>#header, #article, #footer {
+    width: 960px;
+    margin: auto;
+}
+
+#article {
+    border: solid #CCC;
+    border-width: 1px 0 0;
+}
+</code></pre>
+        </div>
+
+        <p>有些站点可能需要一个更全面的布局框架（例如，<a href="http://960.gs/">960.gs</a>）。次要部分布局样式会使用类名代替 ID ，以在页面上能多次使用。<!--Some sites may have a need for a more generalized layout framework (for example, <a href="http://960.gs/">960.gs</a>). These minor Layout styles will use class names instead of IDs so that the styles can be used multiple times on the page.--></p>
+
+
+        <p>通常，一个布局样式只有一个选择器：一个 ID 或 类名。不过有些时候一个布局需要考虑多种情况。例如，你可能会基于用户偏好采取不同的布局。这个布局也应该作为布局样式来声明并和其它布局样式合并使用。<!--Generally, a Layout style only has a single selector: a single ID or class name. However, there are times when a Layout needs to respond to different factors. For example, you may have different layouts based on user preference. This layout preference would still be declared as a Layout style and used in combination with other Layout styles. --></p>
+
+
+        <div class="exm">
+          <p class="exm-caption">使用更高层级的布局样式实现其它样式偏好 <!--Use of a higher level Layout style affecting other Layout styles.--></p>
+<pre><code>#article {
+    float: left;
+}
+
+#sidebar {
+    float: right;
+}
+
+.l-flipped #article {
+    float: right;
+}
+
+.l-flipped #sidebar {
+    float: left;
+}
+</code></pre>
+          </div>
+
+          <p>在布局示例中，.l-flipped 类名应用到一个更高层级元素如 body 元素上，从而允许文章和边栏内容交换，把边栏从右边移到左边，文章则相反。<!--In the Layout example, the .l-flipped class is applied on a higher level element such as the body element and allows the article and sidebar content to be swapped, moving the sidebar from the right to the left and vice versa for the article.--></p>
+
+          <div class="exm">
+            <p class="exm-caption">同时使用两种布局样式，从流式布局到固定布局。<!--Using two Layout styles together to switch from fluid to fixed layout.--></p>
+<pre><code>#article {
+    width: 80%;
+    float: left;
+}
+
+#sidebar {
+    width: 20%;
+    float: right;
+}
+
+.l-fixed #article {
+    width: 600px;
+}
+
+.l-fixed #sidebar {
+    width: 200px;
+}
+</code></pre>
+            </div>
+
+            <p>上例中， <code>.l-fixed</code> 类将设计方案由流式布局(使用百分比)改为固定布局(使用像素值)。<!--In this last example, the <code>.l-fixed</code> class modifies the design to change the layout from fluid (using percentages) to fixed (using pixels).--></p>
+
+            <p>上例中另一个要注意的是我使用的命名惯例。声明使用的 ID 选择器是精确的，并没有特定的命名空间。然而，类基选择器使用了一个 <code>l-</code> 前缀。以此方便识别这些样式的目的，并将它们区别于模块和状态。布局样式是唯一使用 ID 选择器的主分类，如果你选择使用它们的话。如果希望在 ID 选择器上使用命名空间，也可以，不过那是没有必要的。<!--One other thing to note in the Layout example is the naming convention that I've used. The declarations that use ID selectors are named accurately and with no particular namespacing. The class-based selectors, however, <em>do</em> use an <code>l-</code> prefix. This helps easily identify the purpose of these styles and separate them from Modules or States. Layout styles are the only primary category type to use ID selectors, if you choose to use them at all. If you wish to namespace your ID selectors, you can, but it's not as necessary to do so.--></p>
+
+            <h4>使用 ID 选择器 <!--Using ID selector--></h4>
+            <p>为了清楚，在 HTML 中使用 ID 选择器是好的，有时候是必需的。例如，有个能用的 Javascript 钩子时。不过对于 CSS ，ID 选择器不是必需的，因为 ID 和 类选择器的几乎没有性能区别，而又因为增加了专一性而是样式更复杂了。<!--To be clear, using ID attributes in your HTML can be a good thing and in some cases, absolutely necessary. For example, they provide efficient hooks for JavaScript. For CSS, however, ID selectors aren't necessary as the performance difference between ID and class selectors is nearly non-existent and can make styling more complicated due to increasing specificity.--></p>
+
+            <h4>布局示例 <!--Layout Examples--></h4>
+            <p>理论是一方面，应用又是另一种情况。让我们看看一个实际的站点并考虑一下哪些是布局而哪些是模块。<!--Theory is one thing but application is another. Let's take a look at an actual web site and consider what is part of the layout and what is a module.--></p>
+            <div class="exm">
+              <img src="../img/lyt-cnn0.png" alt="使用 CNN.com 作为例子。"><!--Using CNN.com as an example.-->
+            </div>
+
+            <p>看 CNN 网站，上面有很多出现在其他网站上的模式。例如，有头部、导航条，内容区域和尾部(截图中看不见)。<!--In taking a look at the CNN web site, there are a number of patterns that occur in plenty of web sites. For example, there's a header, a navigation bar, a content area and a footer (not seen in the screenshot).--></p>
+
+            <div class="exm">
+              <img src="../img/lyt-cnn1.png" alt="将页面分为头部、主导航和三个主要内容区域。"><!--Breaking the page down into header, main navigation, and three main content areas.-->
+            </div>
+
+            <p>写这篇文章的时候，这个站点很接近这个划分，下面是主要部分的 ID 属性。<!--At the time of this writing, the web site follows very closely to this break down and provides ID attributes for these major sections.--></p>
+
+            <div class="exm">
+              <p class="exm-caption">我们的 CSS 结构可能是这样： <!--Our CSS structure might look something like this:--></p>
+              <pre><code>#header { &hellip; }
+#primarynav { &hellip; }
+#maincontent { &hellip; }
+
+&lt;div id=&quot;header&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;primarynav&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;maincontent&quot;&gt;&lt;/div&gt;
+
+</code></pre>
+              </div>
+
+              <p>好，很直观，你可能在想，“就这样吗？你就让我看些？！” 让我们看看页面上另一部分。<!--Okay, that was straightforward and I'm sure you're thinking, "Really? You're showing me how to do a this?!" Let's take a look at another part of the page.--></p>
+
+              <div class="exm">
+                <img src="../img/lyt-cnn-ft0.png" alt="CNN.com 主页上特色区块"> <!--The featured section of the home page of CNN.com-->
+              </div>
+
+              <p>看看特色区块，我们看到一个新闻条目的格子。CNN 现在的标记是一个 <code>div</code> 容器下一系列 <code>div</code> 。我可能会用无序列表，让我们用它来实现。<!--Taking a look at the Featured section, we see a grid of news items. CNN's current markup is a container <code>div</code> with a series of child <code>div</code>s. I would have likely gone with an unordered list, so let's do that instead.--></p>
+
+              <div class="exm">
+                <p class="exm-caption">特色区块布局的 HTML 代码示例 <!--Example HTML code for the Featured section layout--></p>
+<pre><code>&lt;div&gt;
+&lt;h2&gt;Featured&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;&hellip;&quot;&gt;&hellip;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;&hellip;&quot;&gt;&hellip;&lt;/a&gt;&lt;/li&gt;
+    &hellip;
+&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <p>不考虑 SMACSS 来实现这个，我们可能会倾向于添加一个 ID "featured" 到外面的 DIV，之后再给内容添加样式。<!-- Without considering the SMACSS approach to this, we might be inclined to add a ID of "featured" to the surrounding DIV and then style up the contents from there.--></p>
+
+                <div class="exm">
+                  <p class="exm-caption">一个特色条目列表样式的可能实现<!--A possible approach to styling the list of featured items--></p>
+<pre><code>div#featured ul { 
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+div#featured li {
+    float: left;
+    height: 100px;
+    margin-left: 10px;
+}
+</code></pre>
+                  </div>
+
+                  <p>这是我们实现此方案的一些假定：<!--There are some assumptions that we make with this approach:--></p>
+                  <ol>
+                    <li>这个页面上只有一个特色区块。<!--There will only ever be one featured section on the page--></li>
+                    <li>列表项目是向左浮动的<!--List items are floated to the left--></li>
+                    <li>列表项目高度为 100 像素<!--List items have a height of 100 pixels--></li>
+                  </ol>
+
+                  <p>这些也许是合理的假设。这是一个小网站对于这个结构的原始样本：它不大可能改变且不大可能变得比它现在更复杂。<em>或许，</em> 样式更易变的更大的站点只是会有更多的可能性，去重构页面组件和重新编排相应的样式。<!--These may be reasonable assumptions to make. This is a prime example of where a small site can get away with this structure: it's unlikely to change and it's unlikely to become more complex than it already is. <em>Maybe.</em> Larger sites with a higher rate of change just have a higher chance of refactoring a component within the page and needing to readdress the styling that goes with it.--></p>
+
+                  <p>再回头看看示代码，很明显需要做一些优化。ID 选择器不需要由标签选择器限定，而且，因为列表是 <code>div</code> 的直接后代，子选择器可以派上用场。<!--Looking back at the code example, there are definitely some optimizations that could be made. The ID selector didn't need to be qualified with a tag selector, too, and since the list is a direct descendant of the <code>div</code>, the child selector (&gt;) could've been used.--></p>
+                  <p>让我们看看能带来更好适应性的重新编排。<!--Let's take a look at how this could be readdressed to give us some more flexibility.--></p>
+
+                  <p>以布局视角看，我们需要关心的只是每个元素是如何联系的。我们不用关心模块自己的设计，也不用担心布局的上下文，必须的。<!--From a layout perspective, all we care about is how each item relates to each other. We don't care, necessarily, about the design of the modules themselves nor do we want to have to worry about the context that this layout sits within.--></p>
+
+                  <div class="exm">
+                    <p class="exm-caption">应用到 有序列表或无序列表的栅格模块<!--Grid Module applied to OL or UL.--></p>
+                    <pre><code>.l-grid {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.l-grid &gt; li {
+    display: inline-block;
+    margin: 0 0 10px 10px; 
+
+    /* 模拟行内块 的 IE7 骇客 <!--IE7 hack to mimic inline-block-->*/
+    *display: inline;
+    *zoom: 1;
+}
+</code></pre>
+                    </div>
+
+                    <p>我们解决了哪些问题和我们引进了哪些问题？(极少有 <code>哪个</code> 解决方案能 100% 解决问题。)<!--What problems were solved with this approach and what problems did we introduce? (Very rarely does <em>any</em> solution solve 100% of the problem.)--></p>
+                    <ol>
+                      <li>栅格布局现在可以应用到任意容器来创建一个浮动样式的布局<!--The grid layout can now be applied to any container to create a float-style layout--></li>
+                      <li>我们降低了一层适用性的深度<!--We've decreased the <em>depth of applicability</em> by 1--></li>
+                      <li>我们减少了选择器的专一性<!--We've reduced the specificity of the selectors--></li>
+                      <li>高度要求被移除。每行高度将为最高条目的行高。<!--The height requirement has been removed. A particular row will grow to the height of the tallest item in that row.--></li>
+                    </ol>
+
+                    <p>反过来看，我们做了哪些不好的事情？<!--On the flip-side, how did we make things worse?--></p>
+
+                    <ol>
+                      <li>使用子选择器， IE6 将不再支持。(可以通过避免使用子选择器绕过。)<!--By using a child selector, we're locking out IE6. (We could get around this by avoiding the child selector.)--></li>
+                      <li>增加了 CSS 大小和复杂度。<!--The CSS has increased in size and in complexity.--></li>
+                    </ol>
+
+                    <p>大小的增加是无可争论的，不过是表面上的。现在我们有了这个可重用的模块，能应用到站点的任意地方，而没有代码重复。复杂度的增加也是表面上的。我们确实在过时的浏览器上做了一些工作，并使用了让一些人皱眉的 hacks 。然而，选择器更简单了。<!--The increase in size can't be disputed but it's also nominal. Now that we have this reusable module, we can apply it throughout the site without code duplication. The increase in complexity is also nominal. We did have to work around outdated browsers and thrown in hacks that may be frowned upon by some. However, the selectors are less complex.--></p>
+                    <div class="nav">
+                      <hr>
+                      <ol>
+                        <li><a href="fourtypes.html">CSS 规则的四种类型 <!--The Four Types of CSS Rules--></a>
+                        <ol type="i">
+                          <li><a href="type-base.html">基本 <!--Base--></a></li>
+                          <li><a href="type-layout.html">布局 <!--Layout--></a></li>
+                          <li><a href="type-module.html">模块 <!--Module--></a></li>
+                          <li><a href="type-state.html">状态 <!--State--></a></li>
+                        </ol>
+                        </li>
+                        <li><a href="layering.html">在主题和排版上分层 <!--Layering on with Themes and Typography--></a></li>
+                        <li><a href="applicability.html">适应性的深度 <!--Depth of Applicability--></a></li>
+                        <li><a href="selectors.html">选择器性能 <!--Selector Performance--></a></li>
+                        <li><a href="state.html">状态表示 <!--State Representation--></a></li>
+                        <li><a href="formatting.html">附录：格式化代码 <!--Addendum: Formatting Code--></a></li>
+                        <li><a href="resources.html">资源 <!--Resources--></a></li>
+                        <li><a href="changelog.html">变更记录 <!--Changelog--></a></li>
+
+                      </ol>
+
+                    </div>
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'smacss'; 
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                     })();
+</script>
+
+                 </div>
+
+                 <div id="footer">
+                   <p>    &larr; <a href="../index.html">主页</a>         </p>
+                   <p>&copy; Jonathan Snook</p>
+                 </div>
+                 <script>
+                   var _gauges = _gauges || [];
+                   (function() {
+                     var t   = document.createElement('script');
+                     t.type  = 'text/javascript';
+                     t.async = true;
+                     t.id    = 'gauges-tracker';
+                     t.setAttribute('data-site-id', '4e2e471c613f5d305b000003');
+                     t.src = '//secure.gaug.es/track.js';
+                     var s = document.getElementsByTagName('script')[0];
+                     s.parentNode.insertBefore(t, s);
+                   })();
+                 </script>
+
+               </body>
+             </html>

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8">
+    <title>可量化和模块化 CSS 架构 <!--(Scalable and Modular Architecture for CSS)--></title>
+    <link rel="stylesheet" href="../css/main.css">
+  </head>
+  <body>
+    <div id="header">
+      <h2><em><a href="../index.html">可量化和模块化 CSS 架构 <!--(Scalable and Modular Architecture for CSS)--></a></em></h2>
+    </div>
+    <div id="content">
+
+      <h1>模块<!--Module--></h1>
+
+      <p>上一章曾简单的提到，一个模块是页面上一个比较松散的组件。就是导航栏、幻灯片、弹出对话框和小工具等等。是页面的主要部分。模块位于布局组件中。模块有时也嵌于另一个模块中。每个模块都应该设计为作为独立组件存在。这样，页面更具可扩展性。如果做得好，模块能很轻松的在不同部分移动而不破坏页面。<!--As briefly mentioned in the previous section, a Module is a more discrete component of the page. It's your navigation bars and your carousels and your dialogs and your widgets and so on. This is the meat of the page. Modules sit inside Layout components. Modules can sometimes sit within other Modules, too. Each Module should be designed to exist as a standalone component. In doing so, the page will be more flexible. If done right, Modules can easily be moved to different parts of the layout without breaking.--></p>
+
+
+      <p>为模块定义规则集合时，避免使用 ID 和 元素选择器，应只使用类选择器。一个模块可能包含一些元素，并要求使用后代或子选择器来定位这些元素。<!--When defining the rule set for a module, avoid using IDs and element selectors, sticking only to class names. A module will likely contain a number of elements and there is likely to be a desire to use descendent or child selectors to target those elements. --></p>
+
+      <div class="exm">
+        <p class="exm-caption">模块示例<!--Module example--></p>
+<pre><code>.module > h2 {
+    padding: 5px;
+}
+
+.module span {
+    padding: 5px;
+}</code></pre>
+        </div>
+
+        <h2>避免元素选择器<!--Avoid element selectors--></h2>
+
+        <p>如果元素选择器是可预期的，则可将元素选择器和子或后代选择器一起使用。如果一个 span 元素是可预期被使用的，且在此模块中都相同，那么用 <code>.module span</code> 更好。<!-- Use child or descendant selectors with element selectors if the element selectors will and can be predictable. Using <code>.module span</code> is great if a span will predictably be used and styled the same way every time while within that module.--></p>
+
+        <div class="exm">
+          <p class="exm-caption">使用一般元素样式样<!--Styling with generic element--></p>
+<pre><code>&lt;div class=&quot;fld&quot;&gt;
+    &lt;span&gt;Folder Name&lt;/span&gt;
+&lt;/div&gt;
+
+/* The Folder Module */
+.fld > span {
+    padding-left: 20px;
+    background: url(icon.png);
+}
+</code></pre>
+          </div>
+
+          <p>问题是随着项目复杂度的增长，你可能需要扩展一个组件的功能性，那么在规则中使用一般元素将会有更多限制。<!--The problem is that as a project grows in complexity, the more likely that you'll need to expand a component's functionality and the more limited you'll be in having used such a generic element within your rule.--></p>
+
+
+          <div class="exm">
+            <p class="exm-caption">使用一般元素式样<!--Styling with generic element--></p>
+<pre><code>&lt;div class=&quot;fld&quot;&gt;
+    &lt;span&gt;Folder Name&lt;/span&gt; 
+    &lt;span&gt;(32 items)&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+
+            <p>现在我们进入困境。我们不需要图标出现在文件夹模块的每个元素上。那么来看下面一点：<!--Now we're in a pickle. We don't want the icon to appear on both elements within our folder module. Which leads me to my next point:--></p>
+
+            <p><em>只包含一个有语义的选择器。</em> 一个 span 或 div 没有语义。而标题元素有语义。一个定义在元素上的类有很多语义。<!--<em>Only include a selector that includes semantics.</em> A span or div holds none. A heading has some. A class defined on an element has plenty.--></p>
+
+            <div class="exm">
+              <p class="exm-caption">使用一般元素式样<!--Styling with generic element--></p>
+<pre><code>&lt;div class=&quot;fld&quot;&gt;
+    &lt;span class="fld-name"&gt;Folder Name&lt;/span&gt; 
+    &lt;span class="fld-items"&gt;(32 items)&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+
+              <p>通过添加类到元素上，我们增加了这些元素的语义并移除了应用样式时的任何不确定性。<!--By adding the classes to the elements, we've increased the semantics of what those elements mean and removed any ambiguity when it comes to styling them.--></p>
+
+              <p>如果你要使用元素选择器，它应该在类选择器的一个层级下。也就是说，你应该使用子选择器。非此即彼，你应该很清楚那个元素将不会和其它元素混淆。语义上更通用的 HTML 元素(如一个 span 和 div )，更可能在路上制造混乱。有更好语义的元素，如标题元素，更有可能以其自身出现在容器里，你也更可能正确的使用它。<!--If you do wish to use an element selector, it should be within one level of a class selector. In other words, you should be in a situation to use child selectors. Alternatively, you should be extremely confident that the element in question will not be confused with another element. The more semantically generic the HTML element (like a span or div), the more likely it will create a conflict down the road. Elements with greater semantics like headings are more likely to appear by themselves within a container and you're more likely able to use an element selector successfully.--></p>
+
+
+              <h2>新的上下文<!--New Contexts--></h2>
+              <p>使用模块策略还使我们更好的理解哪里发生上下文变化。举例，一个新位置上下文的需要，一般发生在布局层次或模块的跟元素上。<!--Using the module approach also allows us to better understand where context changes are likely to occur. The need for a new positioning context, for example, is likely to happen at either the layout level or at the root of a module.--></p>
+
+              <h2>子类模块<!--Subclassing Modules--></h2>
+
+              <p>当我们在不同区块有相同模块时，第一直觉是使用父元素来区分那个模块。<!--When we have the same module in different sections, the first instinct is to use a parent element to style that module differently.--></p>
+
+
+              <div class="exm">
+                <p class="exm-caption">子类 <!--Subclassing--></p>
+<pre><code>.pod { 
+    width: 100%; 
+}
+.pod input[type=text] { 
+    width: 50%; 
+}
+#sidebar .pod input[type=text] { 
+    width: 100%; 
+}
+</code></pre>
+                </div>
+
+                <p>使用这个策略的问题是会陷入需要添加更多选择器来战斗，或直接使用 <code>!important</code> 回退的特定问题。<!--The problem with this approach is that you can run into specificity issues that require adding even more selectors to battle against it or to quickly fall back to using <code>!important</code>.--></p>
+
+                <p>扩展我们的 pod 示例，现在有两个不同宽度的输入框。整个站点上，输入框旁边都有一个标签，所以输入区域应该只有一半宽度。而在侧边栏输入区域就太小了，所以我们将其宽度设为 100% 并调整标签到它上面。看上去都很好。现在，我们需要给页面添加一个新的组件，它使用了和 <code>.pod</code> 相同的样式，所以我们重用此类。然而，这个 pod 很特别，它在页面任意位置都使用限定的宽度，为 180px 。虽然这是一个很小的不同。<!--Expanding on our example pod, we have an input with two different widths. Throughout the site, the input has a label beside it and therefore the field should only be half the width. In the sidebar, however, the field would be too small so we increase it to 100% and have the label on top. All looks well and good. Now, we need to add a new component to our page. It uses most of the same styling as a <code>.pod</code> and so we re-use that class. However, this pod is special and has a constrained width no matter where it is on the site. It's a little different, though, and needs a width of 180px.--></p>
+
+
+                <div class="exm">
+                  <p class="exm-caption">与特殊性战斗<!--Battling against specificity--></p>
+<pre><code>.pod { 
+    width: 100%; 
+} 
+.pod input[type=text] { 
+    width: 50%; 
+}
+#sidebar .pod input[type=text] { 
+    width: 100%; 
+}
+
+.pod-callout { 
+    width: 200px; 
+}
+#sidebar .pod-callout input[type=text],
+.pod-callout input[type=text] { 
+    width: 180px; 
+}
+</code></pre>
+                  </div>
+
+                  <p>我们使用加倍的选择器使其覆盖特殊的 <code>#sidebar</code> 。<!--We're doubling up on our selectors to be able to override the specificity of <code>#sidebar</code>.--></p>
+
+                  <p>我们应该这样做，让侧边栏的限定样式布局成为 pod 的子类并相应的应用样式。<!--What we should do instead is recognize that the constrained layout in the sidebar is a subclass of the pod and style it accordingly.--></p>
+
+                  <div class="exm">
+                    <p class="exm-caption">与特殊性战斗<!--Battling against specificity--></p>
+<pre><code>.pod { 
+    width: 100%; 
+} 
+.pod input[type=text] { 
+    width: 50%; 
+}
+.pod-constrained input[type=text] { 
+    width: 100%; 
+}
+
+.pod-callout { 
+    width: 200px; 
+}
+.pod-callout input[type=text] { 
+    width: 180px; 
+}
+</code></pre>
+                    </div>
+
+                    <p>尽量避免基予位置条件的样式。如果要改变页面或站点上某个模块的外观，以子类替代这个模块。<!--Try to avoid conditional styling based on location. If you are changing the look of a module for usage elsewhere on the page or site, sub-class the module instead. --></p>
+
+                    <p>为了与特殊性战斗( 不考虑 IE6 )，可以像下面示例中使用双重类名。<!--To help battle against specificity (and if IE6 isn't a concern), then you can double up on your class names like in the next example.--></p>
+                    <div class="exm">
+                      <p class="exm-caption">子类 <!--Subclassing--></p>
+<pre><code>.pod.pod-callout { }
+</code></pre>
+                      </div>
+
+                      <p>你可能需要考虑加载顺序依赖。举个例子， Yahoo! 邮箱上，我们有来自不同地方的代码。有我们基础按钮样式，也有为排版屏幕的特殊按钮。然而，当你点击添加联系人时，它会从另一个产品--地址簿(是的，在雅虎地址簿是一个另一个的产品)加载一个组件，地址簿加载它自己的基础按钮样式，从而覆盖我们已有的子类按钮样式。<!--You may concerned about this depending on the order of loading. For example, on Yahoo! Mail, we have code coming from different places. We had our base button styles and then we had a special set of buttons for the compose screen. However, when you clicked to add a contact to your address book, it loaded a component from a different product: Address Book. (Yes, the address book is a different product within Yahoo!.) The address book loaded its own base button styles, thereby overwriting the subclassed button styles that we had.--></p>
+
+                      <p>如果在你的项目中加载顺序是一个因素，注意特殊性问题。<!--If load order is a factor in your project, watch out for specificity issues.--></p>
+
+                      <p>赋予了 ID 的特定布局组件能用来给模块提供特殊样式的同时，子类模块允你轻松的将模块移到站点的其它区块而不 增加不必要的特殊性。<!--While more specific layout components assigned with IDs could be used to provide specialized styling for modules, subclassing the module will allow the module to be moved to other sections of the site more easily and you'll avoid increasing the specificity unnecessarily.--></p>
+                      <div class="nav">
+                        <hr>
+                        <ol>
+                          <li><a href="fourtypes.html">CSS 规则的四种类型 <!--The Four Types of CSS Rules--></a>
+                          <ol type="i">
+                            <li><a href="type-base.html">基本 <!--Base--></a></li>
+                            <li><a href="type-layout.html">布局 <!--Layout--></a></li>
+                            <li><a href="type-module.html">模块 <!--Module--></a></li>
+                            <li><a href="type-state.html">状态 <!--State--></a></li>
+                          </ol>
+                          </li>
+                          <li><a href="layering.html">在主题和排版上分层 <!--Layering on with Themes and Typography--></a></li>
+                          <li><a href="applicability.html">适应性的深度 <!--Depth of Applicability--></a></li>
+                          <li><a href="selectors.html">选择器性能 <!--Selector Performance--></a></li>
+                          <li><a href="state.html">状态表示 <!--State Representation--></a></li>
+                          <li><a href="formatting.html">附录：格式化代码 <!--Addendum: Formatting Code--></a></li>
+                          <li><a href="resources.html">资源 <!--Resources--></a></li>
+                          <li><a href="changelog.html">变更记录 <!--Changelog--></a></li>
+
+                        </ol>
+
+                      </div>
+                      <div id="disqus_thread"></div>
+                      <script type="text/javascript">
+                        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                      var disqus_shortname = 'smacss'; 
+
+                      /* * * DON'T EDIT BELOW THIS LINE * * */
+                      (function() {
+                       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                       dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                       })();
+                     </script>
+
+                   </div>
+
+                   <div id="footer">
+                     <p>    &larr; <a href="../index.html">Home</a>         </p>
+                     <p>&copy; Jonathan Snook</p>
+                   </div>
+                   <script>
+                     var _gauges = _gauges || [];
+                     (function() {
+                       var t   = document.createElement('script');
+                       t.type  = 'text/javascript';
+                       t.async = true;
+                       t.id    = 'gauges-tracker';
+                       t.setAttribute('data-site-id', '4e2e471c613f5d305b000003');
+                       t.src = '//secure.gaug.es/track.js';
+                       var s = document.getElementsByTagName('script')[0];
+                       s.parentNode.insertBefore(t, s);
+                     })();
+                   </script>
+
+                 </body>
+               </html>
