@@ -40,11 +40,11 @@ $.widget.bridge 在工厂内部给予 foo 对象公共 API，
     this.options = options;
     this.element = element;
 
-    this.\_init();
+    this._init();
   };
   Widget.prototype = {
-    // \_init 在实例第一次创建时（由上面的构造器）和重新初始化此组建时（由桥）调用
-    \_init: function() {
+    // _init 在实例第一次创建时（由上面的构造器）和重新初始化此组建时（由桥）调用
+    _init: function() {
       // init code
     },
     option: function(key, value) {
@@ -68,7 +68,7 @@ $.widget.bridge 在工厂内部给予 foo 对象公共 API，
     publicFn: function() {
       return 'public method';
     },
-    \_privateFn: function() {
+    _privateFn: function() {
       return 'private method';
     }
   };
@@ -85,7 +85,7 @@ $.widget.bridge 在工厂内部给予 foo 对象公共 API，
     baz: true
   })
   // 将会完成下面三件事：
-  1. 检查对象是否已经初始化，如果已经初始化，自动调用 `option` 和 `\_init` 方法
+  1. 检查对象是否已经初始化，如果已经初始化，自动调用 `option` 和 `_init` 方法
   2. 创建一个新的实例，传入选项键值对和组件对应的元素
   3. 存储实例到元素的 $.data 缓存中
 
@@ -96,7 +96,7 @@ $.widget.bridge 在工厂内部给予 foo 对象公共 API，
   instance.foo('publicFn'); // -- "public method"
 
   // 桥不允许你调用私有方法
-  instance.foo('\_privateFn') // -- #elem 元素
+  instance.foo('_privateFn') // -- #elem 元素
 
   // 桥不允许未初始化组件的方法调用
   $('#bar').foo('publicFn'); // 'cannot call methods on 'foo' prior to initialization'
@@ -114,7 +114,7 @@ $.widget.bridge 在工厂内部给予 foo 对象公共 API，
   instance.foo({baz: false})
 
   // 桥会在已经存在的实例上调用 "options" 方法
-  // 更新传入的新选项并自动执行 \_init() 方法
+  // 更新传入的新选项并自动执行 _init() 方法
   {% endhighlight %}
 
 实现 $.widget.bridge 所有功能的代码不足 50 行。这儿是[源代码][http://github.com/jquery/jquery-ui/blob/1.8.5/ui/jquery.ui.widget.js#L81]链接，参照并学习吧。
