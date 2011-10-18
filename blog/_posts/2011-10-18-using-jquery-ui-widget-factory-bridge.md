@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: blog-post
 title: 使用 jquery ui 组件的 factory bridge
 excerpt: jQuery UI 组件工厂中有个 $.widget.bridge 的方法，是 $.widget 创建的对象和 jQuery API 的中间人。$.widget.bridge 是一个公共方法，所以你不需要加载 jQuery UI 也可以使用它。
 tags: [jquery, javascript]
@@ -117,7 +117,7 @@ $.widget.bridge 在工厂内部给予 foo 对象公共 API，
   // 更新传入的新选项并自动执行 _init() 方法
   {% endhighlight %}
 
-实现 $.widget.bridge 所有功能的代码不足 50 行。这儿是[源代码][http://github.com/jquery/jquery-ui/blob/1.8.5/ui/jquery.ui.widget.js#L81]链接，参照并学习吧。
+实现 $.widget.bridge 所有功能的代码不足 50 行。这儿是[源代码](http://github.com/jquery/jquery-ui/blob/1.8.5/ui/jquery.ui.widget.js#L81)链接，参照并学习吧。
 
-另，可阅读[此页][http://sandbox.nemikor.com/extensible-jquery/]上的代码，由 jQuery UI 的核心开发者 Scott Gonzales 提供，介绍了 $.widget.bridge 概念以及如何使用。
+另，可阅读[此页](http://sandbox.nemikor.com/extensible-jquery/)上的代码，由 jQuery UI 的核心开发者 Scott Gonzales 提供，介绍了 $.widget.bridge 概念以及如何使用。
 
