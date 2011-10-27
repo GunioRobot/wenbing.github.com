@@ -1,8 +1,7 @@
 ---
 layout: blog-post
 title: 创建应用程序相关的 jQuery 扩展
-excerpt: ... 当你写的代码与你的应用紧密关联，且想以链式方式执行时，是不是要作为一个 jQuery 扩展
-来写就不是那么清楚了。
+excerpt: ... 当你写的代码与你的应用紧密关联，且想以链式方式执行时，是不是要作为一个 jQuery 扩展来写就不是那么清楚了。
 tags: [javascript, jQuery, jQuery plugins]
 ---
 
