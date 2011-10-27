@@ -99,5 +99,7 @@ tags: [javascript, jQuery, jQuery plugins]
   {% endhighlight %}
 
 
-[source]:http://blog.nemikor.com/2010/08/16/creating-application-specific-jquery-plugins/
+[原文][source]
+
+[source]:http://blog.nemikor.com/2010/08/16/creating-application-specific-jquery-plugins/ 
 
